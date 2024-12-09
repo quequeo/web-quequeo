@@ -15,7 +15,7 @@ const Projects = () => {
         setProjects(response.data);
       })
       .catch((error) => {
-        console.error('Hubo un error al obtener los proyectos:', error);
+        console.error('Error getting projects:', error);
       });
   }, []);
 
@@ -30,7 +30,7 @@ const Projects = () => {
       }}
     >
       <Typography variant="h3" sx={{ marginBottom: 4 }}>
-        Mis Proyectos
+        
       </Typography>
       {projects.map((project, index) => (
         <motion.div
@@ -48,11 +48,15 @@ const Projects = () => {
             background: '#fff',
           }}
         >
-          <ProjectDetails project={project} />
+          <ProjectDetails 
+            project={project} 
+            onDelete={(id) => setProjects((prev) => prev.filter((p) => p.id !== id))}
+          />
         </motion.div>
       ))}
     </Box>
   );
+  
 };
 
 export default Projects;

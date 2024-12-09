@@ -3,25 +3,31 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#00FF00', // Verde neón
+      main: '#4A90E2', 
     },
     secondary: {
-      main: '#A020F0', // Púrpura neón
+      main: '#F5A623',
     },
     background: {
-      default: '#121212', // Gris muy oscuro
-      paper: '#1E1E1E', // Gris oscuro
+      default: '#F5F5F5',
+      paper: '#FFFFFF',
+    },
+    text: {
+      primary: '#212121',
+      secondary: '#424242',
+    },
+    error: {
+      main: '#D32F2F',
     },
   },
   typography: {
-    fontFamily: '"Press Start 2P", "Orbitron", sans-serif', // Fuentes arcade
+    fontFamily: '"Poppins", sans-serif',
     h1: {
-      fontWeight: 'bold',
-      color: '#00FF00', // Verde neón
-      textShadow: '0 0 8px #00FF00',
+      fontWeight: '600',
+      color: '#212121',
     },
     body1: {
-      color: '#E0E0E0', // Gris claro para texto normal
+      color: '#424242',
     },
   },
 });

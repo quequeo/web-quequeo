@@ -1,11 +1,15 @@
 import React from "react";
 import Slider from "react-slick";
+import { IconButton } from "@mui/material";
+import DeleteSweepOutlinedIcon from '@mui/icons-material/DeleteSweepOutlined';
+import axios from "axios";
+import API_URL from "../utils/api";
+import "../styles/ProjectDetails.css";
 
-// Asegúrate de importar los estilos de slick
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ProjectDetails = ({ project }) => {
+const ProjectDetails = ({ project, onDelete }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -14,21 +18,40 @@ const ProjectDetails = ({ project }) => {
     slidesToScroll: 1,
   };
 
+  const handleDelete = () => {
+    if (window.confirm(`Are you sure you want to delete the project: ${project.title}?`)) {
+      axios
+        .delete(`${API_URL}/me/projects/${project.id}`)
+        .then(() => {
+          onDelete(project.id);
+        })
+        .catch((error) => {
+          console.error("Error deleting project:", error);
+        });
+    }
+  };
+
   return (
     <div className="project-details">
       <div className="project-header">
-        {/* Logo */}
-        <img src={project.logo} alt={`${project.title} logo`} className="project-logo" />
-        <h2>{project.title}</h2>
+        <div className="header-left">
+          <img src={project.logo_url} alt={`${project.title} logo`} className="project-logo" />
+          <h2>{project.title}</h2>
+        </div>
+        <IconButton onClick={handleDelete} aria-label="delete" color="secondary" className="delete-button">
+          <DeleteSweepOutlinedIcon fontSize="large" />
+        </IconButton>
       </div>
-      <p>{project.description}</p>
 
-      {/* Carrusel de imágenes */}
+      <div className="project-description">
+        <p>{project.description}</p>
+      </div>
+
       {project.images && project.images.length > 0 && (
-        <Slider {...settings}>
+        <Slider {...settings} className="project-slider">
           {project.images.map((image, index) => (
             <div key={index}>
-              <img src={image} alt={`Proyecto ${project.title} - Imagen ${index + 1}`} className="project-image" />
+              <img src={image} alt={`Project ${project.title} - ${index + 1}`} className="slider-image" />
             </div>
           ))}
         </Slider>

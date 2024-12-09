@@ -8,26 +8,36 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    if (token && userData) {
       setIsAuthenticated(true);
-      setUser(user);
+      setUser(userData);
     }
-  }, [user]);
+  }, []);
 
   const login = (userData, token) => {
     setUser(userData);
     setIsAuthenticated(true);
     localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData));
   };
 
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  };
+
+  const register = (userData, token) => {
+    setUser(userData);
+    setIsAuthenticated(true);
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData));
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );
