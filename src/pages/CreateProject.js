@@ -31,17 +31,17 @@ const CreateProject = () => {
       const response = await axios.get(`${API_URL}/me/uploads/presigned_url`, {
         params: { file_name: file.name, file_type: file.type },
       });
-
-      const { url, fields } = response.data;
+  
+      const { url } = response.data;
       const formData = new FormData();
-
-      Object.entries(fields).forEach(([key, value]) => {
-        formData.append(key, value);
-      });
+  
       formData.append("file", file);
-
-      await axios.post(url, formData);
-      return `${url}/${fields.key}`;
+  
+      await axios.post(url, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+  
+      return `${url}/${file.name}`;
     } catch (error) {
       console.error("Error uploading file to S3:", error);
       throw error;
