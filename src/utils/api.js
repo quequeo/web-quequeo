@@ -6,16 +6,18 @@ const API_URL = `${API_BASE_URL}/${API_VERSION}`;
 export default API_URL;
 
 export const registerUser = async (userData) => {
-  fetch('https://ineduazj41.execute-api.us-east-1.amazonaws.com/production/api/v1/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  const response = await fetch(`${API_URL}/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userData),
-  })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error));
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.errors.join(", "));
+  }
+
+  return response.json();
 };
 
 export const loginUser = async (credentials) => {
