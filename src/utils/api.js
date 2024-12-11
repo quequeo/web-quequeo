@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+//const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = "https://ineduazj41.execute-api.us-east-1.amazonaws.com/production/api";
 const API_VERSION = process.env.REACT_APP_API_VERSION;
 const API_URL = `${API_BASE_URL}/${API_VERSION}`;
 
