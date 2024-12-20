@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { loginUser } from "../utils/api";
@@ -6,11 +6,17 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, user } = useContext(AuthContext);
   const [credentials, setCredentials] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
   const handleChange = (e) => setCredentials({ ...credentials, [e.target.name]: e.target.value });
+
+  useEffect(() => {
+    if (user) {
+      navigate('/projects');
+    }
+  }, [user, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

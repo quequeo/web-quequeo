@@ -6,17 +6,17 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Profile from './pages/Profile';
 import CreateProject from './pages/CreateProject';
+import EditProject from './pages/EditProject';
 import Navbar from './components/Navbar';
 //import Register from './components/Register';
 import Login from './components/Login';
-import background from './assets/images/background.webp';
 import { Box } from '@mui/material';
 
 function App() {
 
   return (
     <Box 
-      sx={{ backgroundImage: `url(${background})`, 
+      sx={{ backgroundImage: `url('/background.jpg')`, 
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -33,6 +33,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/create-project" element={<PrivateRoute><CreateProject /></PrivateRoute>} />
+            <Route path="/edit-project/:id" element={<PrivateRoute><EditProject /></PrivateRoute>} />
             {/* <Route path="/register" element={<Register /> */} 
             <Route path="/login" element={<Login />} />
           </Routes>

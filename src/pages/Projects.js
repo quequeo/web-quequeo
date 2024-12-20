@@ -14,11 +14,11 @@ const Projects = () => {
       .get(`${API_URL}/me/projects`)
       .then((response) => {
         setProjects(response.data);
-        setError(false);  // Reset error state if successful
+        setError(false);
       })
       .catch((error) => {
         console.error('Error getting projects:', error);
-        setError(true);  // Set error state if request fails
+        setError(true);
       });
   }, []);
 
@@ -28,13 +28,10 @@ const Projects = () => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: 4,
-        padding: 2,
+        gap: 8,
+        padding: 6,
       }}
     >
-      <Typography variant="h3" sx={{ marginBottom: 4 }}>
-        Projects
-      </Typography>
       {error ? (
         <Typography variant="h6" color="error">Error loading projects.</Typography>
       ) : (
@@ -48,14 +45,13 @@ const Projects = () => {
             style={{
               width: '100%',
               maxWidth: '600px',
-              padding: '16px',
+              padding: '12px 12px 10px 12px',
               borderRadius: '8px',
-              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-              background: '#fff',
+              background: '#c5c2c2'
             }}
           >
             <ProjectDetails 
-              project={project} 
+              project={project}
               onDelete={(id) => setProjects((prev) => prev.filter((p) => p.id !== id))}
             />
           </motion.div>
