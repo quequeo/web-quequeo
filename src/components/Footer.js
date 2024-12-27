@@ -15,7 +15,7 @@ function Footer() {
       }}
     >
       <Typography variant="body2">
-        © 2024 Quequeo by Jaime García Méndez. Deployed with AWS Amplify
+        © 2024 Quequeo. Deployed with AWS Amplify
       </Typography>
     </Box>
   );

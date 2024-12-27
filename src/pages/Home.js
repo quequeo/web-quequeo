@@ -1,32 +1,10 @@
-import React, { useState } from 'react';
-import { Box, Typography, Avatar, IconButton, Switch } from '@mui/material';
+import React, { useContext } from 'react';
+import { Box, Typography, Avatar, IconButton } from '@mui/material';
 import { GitHub, LinkedIn, Instagram, WhatsApp } from '@mui/icons-material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { CssBaseline } from '@mui/material';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import BedtimeIcon from '@mui/icons-material/Bedtime';
+import { ThemeContext } from '../context/ThemeContext';
 
 function Home() {
-  const [darkMode, setDarkMode] = useState(true);
-  const [language, setLanguage] = useState('en');
-
-  const theme = createTheme({
-    palette: {
-      mode: darkMode ? 'dark' : 'light',
-    },
-    typography: {
-      fontFamily: 'Nova Mono, monospace',
-      fontSize: 13.5,
-    },
-  });
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'es' ? 'en' : 'es');
-  };
+  const { language } = useContext(ThemeContext);
 
   const textContent = {
     es: {
@@ -44,106 +22,73 @@ function Home() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '6rem',
+        gap: '6rem',
+      }}
+    >
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: { xs: 'column', md: 'row' },
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '6rem',
           gap: '6rem',
         }}
       >
-        <Box
+        <Avatar
+          src="/jaime_cartoon.png"
+          alt="Jaime García Méndez"
           sx={{
-            position: 'absolute',
-            top: '1rem',
-            right: '1rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '1rem',
+            width: 330,
+            height: 330,
+            borderRadius: '50%',
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
           }}
-        >
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Brightness7Icon fontSize="small" />
-            <Switch checked={darkMode} onChange={toggleDarkMode} size="small" />
-            <BedtimeIcon fontSize="small" />
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <img
-              src="/argentina-flag.png"
-              alt="Español"
-              style={{ width: '18px', height: '12px' }}
-            />
-            <Switch checked={language === 'en'} onChange={toggleLanguage} size="small" />
-            <img
-              src="/us-flag.png"
-              alt="English"
-              style={{ width: '20px', height: '24px' }}
-            />
-          </Box>
-        </Box>
+        />
 
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '6rem',
+            maxWidth: '580px',
+            textAlign: 'justify',
+            lineHeight: '1',
           }}
         >
-          <Avatar
-            src="/jaime_cartoon.png"
-            alt="Jaime García Méndez"
-            sx={{
-              width: 330,
-              height: 330,
-              borderRadius: '50%',
-              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
-            }}
-          />
-
-          <Box
-            sx={{
-              maxWidth: '580px',
-              textAlign: 'justify',
-              lineHeight: '1',
-            }}
-          >
-            <Typography variant="h4" component="h1" gutterBottom>
-              {textContent[language].welcome}
-            </Typography>
-            <Typography variant="body1" component="p">
-              {textContent[language].about}
-            </Typography>
-            <Typography variant="body1" component="p" mt={2}>
-              {textContent[language].experience}
-            </Typography>
-            <Typography variant="body1" component="p" mt={2}>
-              {textContent[language].more}
-            </Typography>
-          </Box>
-        </Box>
-
-        <Box sx={{ display: 'flex', gap: 6 }}>
-          <IconButton component="a" href="https://github.com/quequeo" target="_blank" rel="noopener noreferrer">
-            <GitHub fontSize="large" />
-          </IconButton>
-          <IconButton component="a" href="https://www.linkedin.com/in/jaimefgarciamendez/" target="_blank" rel="noopener noreferrer">
-            <LinkedIn fontSize="large" />
-          </IconButton>
-          <IconButton component="a" href="https://www.instagram.com/jaimegarciamendez/" target="_blank" rel="noopener noreferrer">
-            <Instagram fontSize="large" />
-          </IconButton>
-          <IconButton component="a" href="https://wa.me/541162688950" target="_blank" rel="noopener noreferrer">
-            <WhatsApp fontSize="large" />
-          </IconButton>
+          <Typography variant="h4" component="h1" gutterBottom>
+            {textContent[language].welcome}
+          </Typography>
+          <Typography variant="body1" component="p">
+            {textContent[language].about}
+          </Typography>
+          <Typography variant="body1" component="p" mt={2}>
+            {textContent[language].experience}
+          </Typography>
+          <Typography variant="body1" component="p" mt={2}>
+            {textContent[language].more}
+          </Typography>
         </Box>
       </Box>
-    </ThemeProvider>
+
+      <Box sx={{ display: 'flex', gap: 6 }}>
+        <IconButton component="a" href="https://github.com/quequeo" target="_blank" rel="noopener noreferrer">
+          <GitHub fontSize="large" />
+        </IconButton>
+        <IconButton component="a" href="https://www.linkedin.com/in/jaimefgarciamendez/" target="_blank" rel="noopener noreferrer">
+          <LinkedIn fontSize="large" />
+        </IconButton>
+        <IconButton component="a" href="https://www.instagram.com/jaimegarciamendez/" target="_blank" rel="noopener noreferrer">
+          <Instagram fontSize="large" />
+        </IconButton>
+        <IconButton component="a" href="https://wa.me/541162688950" target="_blank" rel="noopener noreferrer">
+          <WhatsApp fontSize="large" />
+        </IconButton>
+      </Box>
+    </Box>
   );
 }
 
