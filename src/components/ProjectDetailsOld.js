@@ -11,7 +11,7 @@ import { AuthContext } from '../context/AuthContext';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ProjectDetails = ({ project, onDelete }) => {
+const ProjectDetailsOld = ({ project, onDelete }) => {
   const { user } = useContext(AuthContext);
 
   const settings = {
@@ -77,4 +77,4 @@ const ProjectDetails = ({ project, onDelete }) => {
   );
 };
 
-export default ProjectDetails;
+export default ProjectDetailsOld;

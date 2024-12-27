@@ -24,7 +24,7 @@ function SimpleNavbar() {
           height: 'auto',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '6rem' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
 
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Brightness7

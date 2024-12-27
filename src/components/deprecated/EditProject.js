@@ -3,7 +3,7 @@ import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Box, Button, TextField, Typography, Avatar, IconButton } from "@mui/material";
 import { Close } from "@mui/icons-material";
-import API_URL from "../utils/api";
+import API_URL from "../../utils/api";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditProject = () => {

@@ -1,66 +1,96 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { motion } from 'framer-motion';
-import { Box, Typography } from '@mui/material';
-import ProjectDetails from '../components/ProjectDetails';
-import API_URL from '../utils/api';
+import React, { useContext } from 'react';
+import { Box, Typography, Avatar, Card, CardContent } from '@mui/material';
+import projectsData from '../data/projectsData';
+import NavigationArrow from '../components/NavigationArrow';
+import { ThemeContext } from '../context/ThemeContext';
 
-const Projects = () => {
-  const [projects, setProjects] = useState([]);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/me/projects`);
-        setProjects(response.data);
-        setError(false);
-      } catch (error) {
-        console.error('Error getting projects:', error);
-        setError(true);
-      }
-    };
-
-    fetchProjects();
-  }, []);
+function Projects() {
+  const { language } = useContext(ThemeContext);
+  const { title, projects } = projectsData[language];
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 8,
-        padding: 6,
-      }}
-    >
-      {error ? (
-        <Typography variant="h6" color="error">Error loading projects.</Typography>
-      ) : (
-        projects.map((project, index) => (
-          <motion.div
-            key={project.id}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            whileHover={{ scale: 1.05 }}
-            style={{
-              width: '100%',
-              maxWidth: '600px',
-              padding: '12px 12px 10px 12px',
-              borderRadius: '8px',
-              background: '#c5c2c2'
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          padding: '6rem',
+          position: 'relative'
+        }}
+      >
+      
+      <NavigationArrow direction="left" path="/" />
+
+      <Typography variant="h4" component="h1" gutterBottom
+        sx={{
+          paddingBottom: '1rem',
+          left: '50%'
+        }}  
+      >
+        {title}
+      </Typography>
+
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '2rem',
+          width: '100%',
+          maxWidth: '800px',
+        }}
+      >
+       {projects.map((project, index) => (
+          <Card
+            key={index}
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', md: 'row' },
+              alignItems: 'center',
+              padding: '1.5rem',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
             }}
           >
-            <ProjectDetails 
-              project={project}
-              onDelete={(id) => setProjects((prev) => prev.filter((p) => p.id !== id))}
+            <Avatar
+              src={project.logo}
+              alt={project.company}
+              sx={{ width: 125, height: 125, marginRight: { md: '1.5rem', xs: '0' }, marginBottom: { xs: '1rem', md: '0' } }}
             />
-          </motion.div>
-        ))
-      )}
+
+            <CardContent
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'flex-start',
+                textAlign: 'justify',
+              }}
+            >
+              <Typography variant="h5" component="h2">
+                {project.company}
+              </Typography>
+
+              <Typography variant="subtitle1" color="textSecondary">
+                Client: {project.client || 'N/A'}
+              </Typography>
+
+              <Typography variant="body1" mt={1}>
+                Role: {project.role || project.description}
+              </Typography>
+
+              <Typography variant="body2" color="textSecondary" mt={1}>
+                {project.start_date} - {project.end_date}
+              </Typography>
+
+              <Typography variant="body2" mt={2}>
+                Stack: {project.stack}
+              </Typography>
+            </CardContent>
+          </Card>
+        ))}
+        <NavigationArrow direction="right" path="/" />
+      </Box>
     </Box>
   );
-};
+}
 
 export default Projects;

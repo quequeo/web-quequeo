@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { Box, Typography, Avatar, IconButton } from '@mui/material';
-import { ArrowBack, ArrowForward } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { Box, Typography, Avatar } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
+import NavigationArrow from '../components/NavigationArrow';
 
 function Home() {
   const { language } = useContext(ThemeContext);
-  const navigate = useNavigate();
 
   const textContent = {
     es: {
@@ -24,32 +22,22 @@ function Home() {
   };
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '6rem',
-        paddingTop: '12rem',
-        gap: '6rem',
-        position: 'relative',
-      }}
-    >
-
-      <IconButton
+      <Box
         sx={{
-          position: 'absolute',
-          left: '1rem',
-          top: '60%',
-          transform: 'translateY(-50%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '6rem',
+          marginTop: '10rem',
+          gap: '6rem',
+          position: 'relative',
         }}
-        disabled
       >
-        <ArrowBack fontSize="large" />
-      </IconButton>
+      {/* Flecha izquierda deshabilitada */}
+      <NavigationArrow direction="left" path="/projects" />
 
-
+      {/* Contenido principal */}
       <Box
         sx={{
           display: 'flex',
@@ -92,17 +80,8 @@ function Home() {
         </Box>
       </Box>
 
-      <IconButton
-        sx={{
-          position: 'absolute',
-          right: '1rem',
-          top: '60%',
-          transform: 'translateY(-50%)',
-        }}
-        onClick={() => navigate('/experience')}
-      >
-        <ArrowForward fontSize="large" />
-      </IconButton>
+      {/* Flecha derecha al primer id de experiences */}
+      <NavigationArrow direction="right" path="/projects" />
     </Box>
   );
 }
