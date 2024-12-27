@@ -40,15 +40,15 @@ function SimpleNavbar() {
 
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img
-              src="/arg-flag.webp"
+              src="/argentina-flag.png"
               alt="Español"
-              style={{ width: '20px', height: '20px' }}
+              style={{ width: '20px', height: '14px' }}
             />
             <Switch checked={language === 'en'} onChange={toggleLanguage} size="small" />
             <img
-              src="/usa-flag.webp"
+              src="/us-flag.png"
               alt="English"
-              style={{ width: '20px', height: '20px' }}
+              style={{ width: '20px', height: '28px' }}
             />
           </Box>
         </Box>
