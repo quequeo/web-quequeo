@@ -29,6 +29,7 @@ function Home() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '6rem',
+        paddingTop: '12rem',
         gap: '6rem',
       }}
     >

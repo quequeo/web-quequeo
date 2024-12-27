@@ -27,23 +27,28 @@ function SimpleNavbar() {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           {/* Dark Mode Toggle */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Brightness7 fontSize="small" />
+            <Brightness7
+              fontSize="small"
+              sx={{ color: darkMode ? '#fff' : '#000' }}
+            />
             <Switch checked={darkMode} onChange={toggleDarkMode} size="small" />
-            <Bedtime fontSize="small" />
+            <Bedtime
+              fontSize="small"
+              sx={{ color: darkMode ? '#fff' : '#000' }}
+            />
           </Box>
 
-          {/* Language Toggle */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img
-              src="/argentina-flag.png"
+              src="/arg-flag.webp"
               alt="Español"
-              style={{ width: '18px', height: '12px' }}
+              style={{ width: '20px', height: '20px' }}
             />
             <Switch checked={language === 'en'} onChange={toggleLanguage} size="small" />
             <img
-              src="/us-flag.png"
+              src="/usa-flag.webp"
               alt="English"
-              style={{ width: '20px', height: '24px' }}
+              style={{ width: '20px', height: '20px' }}
             />
           </Box>
         </Box>
