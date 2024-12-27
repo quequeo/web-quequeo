@@ -10,16 +10,18 @@ const Projects = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`${API_URL}/me/projects`)
-      .then((response) => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/me/projects`);
         setProjects(response.data);
         setError(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Error getting projects:', error);
         setError(true);
-      });
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   return (

@@ -5,10 +5,13 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@lucide/lab": "^0.1.2",
     "@mui/icons-material": "^6.2.1",
     "@mui/material": "^6.2.1",
     "axios": "^1.7.9",
     "cra-template": "1.2.0",
+    "lucide-react": "^0.469.0",
+    "material-ui-flags": "^1.2.4",
     "motion": "^11.13.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
