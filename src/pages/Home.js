@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Box, Typography, Avatar, IconButton } from '@mui/material';
-import { GitHub, LinkedIn, Instagram, WhatsApp } from '@mui/icons-material';
+import { ArrowBack, ArrowForward } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext';
 
 function Home() {
   const { language } = useContext(ThemeContext);
+  const navigate = useNavigate();
 
   const textContent = {
     es: {
@@ -31,8 +33,23 @@ function Home() {
         padding: '6rem',
         paddingTop: '12rem',
         gap: '6rem',
+        position: 'relative',
       }}
     >
+
+      <IconButton
+        sx={{
+          position: 'absolute',
+          left: '1rem',
+          top: '60%',
+          transform: 'translateY(-50%)',
+        }}
+        disabled
+      >
+        <ArrowBack fontSize="large" />
+      </IconButton>
+
+
       <Box
         sx={{
           display: 'flex',
@@ -75,20 +92,17 @@ function Home() {
         </Box>
       </Box>
 
-      <Box sx={{ display: 'flex', gap: 6 }}>
-        <IconButton component="a" href="https://github.com/quequeo" target="_blank" rel="noopener noreferrer">
-          <GitHub fontSize="large" />
-        </IconButton>
-        <IconButton component="a" href="https://www.linkedin.com/in/jaimefgarciamendez/" target="_blank" rel="noopener noreferrer">
-          <LinkedIn fontSize="large" />
-        </IconButton>
-        <IconButton component="a" href="https://www.instagram.com/jaimegarciamendez/" target="_blank" rel="noopener noreferrer">
-          <Instagram fontSize="large" />
-        </IconButton>
-        <IconButton component="a" href="https://wa.me/541162688950" target="_blank" rel="noopener noreferrer">
-          <WhatsApp fontSize="large" />
-        </IconButton>
-      </Box>
+      <IconButton
+        sx={{
+          position: 'absolute',
+          right: '1rem',
+          top: '60%',
+          transform: 'translateY(-50%)',
+        }}
+        onClick={() => navigate('/experience')}
+      >
+        <ArrowForward fontSize="large" />
+      </IconButton>
     </Box>
   );
 }

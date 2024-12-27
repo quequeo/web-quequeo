@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
+import SocialMedia from './SocialMedia';
 
 function Footer() {
   return (
@@ -14,8 +15,11 @@ function Footer() {
         textAlign: 'center' 
       }}
     >
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
+        <SocialMedia />
+      </Box>
       <Typography variant="body2">
-        © 2024 Quequeo. Deployed with AWS Amplify
+        Quequeo © - Hosted with AWS Amplify
       </Typography>
     </Box>
   );

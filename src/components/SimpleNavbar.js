@@ -24,8 +24,8 @@ function SimpleNavbar() {
           height: 'auto',
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          {/* Dark Mode Toggle */}
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '6rem' }}>
+
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Brightness7
               fontSize="small"
