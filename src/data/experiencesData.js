@@ -1,7 +1,7 @@
-const projectsData = {
+const experiencesData = {
   es: {
     title: 'Experiencia Laboral',
-    projects: [
+    work_experiences: [
       {
         company: "Deviget",
         client: "Ring LLC",
@@ -33,7 +33,7 @@ const projectsData = {
   },
   en: {
     title: 'Work Experience',
-    projects: [
+    work_experiences: [
       {
         company: "Deviget",
         client: "Ring LLC",
@@ -65,4 +65,4 @@ const projectsData = {
   }
 };
 
-export default projectsData;
+export default experiencesData;

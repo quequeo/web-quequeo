@@ -1,41 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import { AuthContext } from './context/AuthContext';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ThemeProviderCustom } from './context/ThemeContext';
 import Home from './pages/Home';
-import CreateProject from './components/deprecated/CreateProject';
-import EditProject from './components/deprecated/EditProject';
-import Projects from './pages/Projects';
+import Quequeo from './pages/Quequeo';
 import SimpleNavbar from './components/SimpleNavbar';
-import Login from './components/Login';
 import Footer from './components/Footer';
+import Ring from './pages/Ring';
+import Loop from './pages/Loop';
+import Oyga from './pages/Oyga';
 
 function App() {
   return (
-    <AuthProvider>
-      <ThemeProviderCustom>
-        <SimpleNavbar />
-        <Router>
-          <Routes>
-            {/* Rutas para usuarios no autenticados */}
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            {/* Rutas para usuarios autenticados */}
-            <Route path="/create-project" element={<PrivateRoute><CreateProject /></PrivateRoute>} />
-            <Route path="/edit-project/:id" element={<PrivateRoute><EditProject /></PrivateRoute>} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </ThemeProviderCustom>
-    </AuthProvider>
+    <ThemeProviderCustom>
+      <SimpleNavbar />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/quequeo" element={<Quequeo />} />
+          <Route path="/ring" element={<Ring />} />
+          <Route path="/loop" element={<Loop />} />
+          <Route path="/oyga" element={<Oyga />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </ThemeProviderCustom>
   );
-}
-
-function PrivateRoute({ children }) {
-  const { isAuthenticated } = React.useContext(AuthContext);
-  return isAuthenticated ? children : <Navigate to="/login" />;
 }
 
 export default App;

@@ -2,29 +2,27 @@ import React, { useContext } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import homeContent from '../data/homeContent';
+import quequeoContent from '../data/quequeoContent';
 
-function Home() {
+function Quequeo() {
   const { language } = useContext(ThemeContext);
-  const content = homeContent[language];
+  const content = quequeoContent[language];
 
   return (
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '6rem',
-          marginTop: '10rem',
-          gap: '6rem',
-          position: 'relative',
-        }}
-      >
-      {/* Flecha izquierda deshabilitada */}
-      <NavigationArrow direction="left" path="/oyga" />
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '6rem',
+        marginTop: '10rem',
+        gap: '6rem',
+        position: 'relative',
+      }}
+    >
+      <NavigationArrow direction="left" path="/" />
 
-      {/* Contenido principal */}
       <Box
         sx={{
           display: 'flex',
@@ -35,13 +33,13 @@ function Home() {
         }}
       >
         <Avatar
-          src="/jaime_cartoon.png"
-          alt="Jaime García Méndez"
+          src="/stack/quequeo.png"
+          alt="Quequeo website"
           sx={{
             width: 330,
             height: 330,
             borderRadius: '50%',
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)'
           }}
         />
 
@@ -56,21 +54,20 @@ function Home() {
             {content.title}
           </Typography>
           <Typography variant="body1" component="p">
-            {content.about}
+            {content.frontend}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
-            {content.experience}
+            {content.backend}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
-            {content.more}
+            {content.infrastructure}
           </Typography>
         </Box>
       </Box>
 
-      {/* Flecha derecha al primer id de experiences */}
-      <NavigationArrow direction="right" path="/quequeo" />
+      <NavigationArrow direction="right" path="/ring" />
     </Box>
   );
 }
 
-export default Home;
+export default Quequeo;

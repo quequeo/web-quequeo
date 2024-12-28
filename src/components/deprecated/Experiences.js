@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Box, Typography, Avatar, Card, CardContent } from '@mui/material';
-import projectsData from '../data/projectsData';
-import NavigationArrow from '../components/NavigationArrow';
-import { ThemeContext } from '../context/ThemeContext';
+import experiencesData from '../../data/experiencesData';
+import NavigationArrow from '../NavigationArrow';
+import { ThemeContext } from '../../context/ThemeContext';
 
-function Projects() {
+function Experiences() {
   const { language } = useContext(ThemeContext);
-  const { title, projects } = projectsData[language];
+  const { title, work_experiences } = experiencesData[language];
 
   return (
       <Box
@@ -39,7 +39,7 @@ function Projects() {
           maxWidth: '800px',
         }}
       >
-       {projects.map((project, index) => (
+       {work_experiences.map((experience, index) => (
           <Card
             key={index}
             sx={{
@@ -51,8 +51,8 @@ function Projects() {
             }}
           >
             <Avatar
-              src={project.logo}
-              alt={project.company}
+              src={experience.logo}
+              alt={experience.company}
               sx={{ width: 125, height: 125, marginRight: { md: '1.5rem', xs: '0' }, marginBottom: { xs: '1rem', md: '0' } }}
             />
 
@@ -66,31 +66,31 @@ function Projects() {
               }}
             >
               <Typography variant="h5" component="h2">
-                {project.company}
+                {experience.company}
               </Typography>
 
               <Typography variant="subtitle1" color="textSecondary">
-                Client: {project.client || 'N/A'}
+                Client: {experience.client || 'N/A'}
               </Typography>
 
               <Typography variant="body1" mt={1}>
-                Role: {project.role || project.description}
+                Role: {experience.role || experience.description}
               </Typography>
 
               <Typography variant="body2" color="textSecondary" mt={1}>
-                {project.start_date} - {project.end_date}
+                {experience.start_date} - {experience.end_date}
               </Typography>
 
               <Typography variant="body2" mt={2}>
-                Stack: {project.stack}
+                Stack: {experience.stack}
               </Typography>
             </CardContent>
           </Card>
         ))}
-        <NavigationArrow direction="right" path="/" />
+        <NavigationArrow direction="right" path="/quequeo" />
       </Box>
     </Box>
   );
 }
 
-export default Projects;
+export default Experiences;

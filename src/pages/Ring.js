@@ -2,29 +2,27 @@ import React, { useContext } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import homeContent from '../data/homeContent';
+import ringContent from '../data/ringContent';
 
-function Home() {
+function Ring() {
   const { language } = useContext(ThemeContext);
-  const content = homeContent[language];
+  const content = ringContent[language];
 
   return (
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '6rem',
-          marginTop: '10rem',
-          gap: '6rem',
-          position: 'relative',
-        }}
-      >
-      {/* Flecha izquierda deshabilitada */}
-      <NavigationArrow direction="left" path="/oyga" />
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '6rem',
+        marginTop: '10rem',
+        gap: '6rem',
+        position: 'relative',
+      }}
+    >
+      <NavigationArrow direction="left" path="/quequeo" />
 
-      {/* Contenido principal */}
       <Box
         sx={{
           display: 'flex',
@@ -35,8 +33,8 @@ function Home() {
         }}
       >
         <Avatar
-          src="/jaime_cartoon.png"
-          alt="Jaime García Méndez"
+          src={content.work_experience.logo}
+          alt={content.work_experience.company}
           sx={{
             width: 330,
             height: 330,
@@ -56,21 +54,26 @@ function Home() {
             {content.title}
           </Typography>
           <Typography variant="body1" component="p">
-            {content.about}
+            <strong>Company:</strong> {content.work_experience.company}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
-            {content.experience}
+            <strong>Client:</strong> {content.work_experience.client}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
-            {content.more}
+            <strong>Role:</strong> {content.work_experience.role}
+          </Typography>
+          <Typography variant="body1" component="p" mt={2}>
+            <strong>Stack:</strong> {content.work_experience.stack}
+          </Typography>
+          <Typography variant="body1" component="p" mt={2}>
+            {content.work_experience.start_date} - {content.work_experience.end_date}
           </Typography>
         </Box>
       </Box>
 
-      {/* Flecha derecha al primer id de experiences */}
-      <NavigationArrow direction="right" path="/quequeo" />
+      <NavigationArrow direction="right" path="/loop" />
     </Box>
   );
 }
 
-export default Home;
+export default Ring;
