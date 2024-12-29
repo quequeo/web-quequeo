@@ -9,7 +9,7 @@ function Footer() {
   return (
     <Box 
       sx={{ 
-        backgroundColor: darkMode ? '#333' : '#f5f5f5', 
+        backgroundColor: darkMode ? '#000' : '#f5f5f5',
         color: darkMode ? '#fff' : '#000', 
         padding: '0.5rem',
         position: 'fixed', 

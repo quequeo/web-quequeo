@@ -18,7 +18,7 @@ function Quequeo() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '6rem',
-        marginTop: '6rem',
+        marginTop: '2rem',
         gap: '2rem',
         position: 'relative',
       }}

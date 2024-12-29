@@ -1,48 +1,72 @@
-import React, { useContext, useState } from 'react';
-import { AppBar, Toolbar, Box, Switch, IconButton, Menu, MenuItem } from '@mui/material';
-import { Brightness7, Bedtime, Menu as MenuIcon } from '@mui/icons-material';
+import React, { useContext } from 'react';
+import { AppBar, Toolbar, Box, Button, Switch } from '@mui/material';
+import { Brightness7, Bedtime } from '@mui/icons-material';
 import { ThemeContext } from '../context/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 function SimpleNavbar() {
   const { darkMode, toggleDarkMode, language, toggleLanguage } = useContext(ThemeContext);
-  const [menuAnchor, setMenuAnchor] = useState(null);
-
-  const handleMenuOpen = (event) => {
-    setMenuAnchor(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setMenuAnchor(null);
-  };
+  const navigate = useNavigate();
 
   return (
     <AppBar
-      position="absolute"
+      position="static"
       sx={{
-        backgroundColor: 'transparent',
+        backgroundColor: darkMode ? '#000' : '#f5f5f5',
+        color: darkMode ? '#fff' : '#000',
         boxShadow: 'none',
-        top: 0,
-        zIndex: 1,
-        height: '3rem', // Ajusta la altura del navbar
+        paddingX: '1rem',
+        height: '4rem',
       }}
     >
       <Toolbar
         sx={{
           display: 'flex',
-          justifyContent: 'space-between', // Espaciado entre los elementos
+          justifyContent: 'space-between',
           alignItems: 'center',
-          height: '100%', // Ocupa toda la altura del AppBar
-          paddingX: '1rem',
+          height: '100%',
         }}
       >
-        {/* Switches */}
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+          <Button
+            onClick={() => navigate('/')}
+            sx={{ color: 'inherit', textTransform: 'none' }}
+          >
+            Quequeo
+          </Button>
+          <Button
+            onClick={() => navigate('/me')}
+            sx={{ color: 'inherit', textTransform: 'none' }}
+          >
+            About Me
+          </Button>
+          <Button
+            onClick={() => navigate('/experience')}
+            sx={{ color: 'inherit', textTransform: 'none' }}
+          >
+            Experience
+          </Button>
+          <Button
+            href="https://github.com/quequeo"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: 'inherit', textTransform: 'none' }}
+          >
+            GitHub
+          </Button>
+        </Box>
+
+        {/* Toggles */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          {/* Dark Mode Toggle */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Brightness7 fontSize="small" sx={{ color: darkMode ? '#fff' : '#000' }} />
             <Switch checked={darkMode} onChange={toggleDarkMode} size="small" />
             <Bedtime fontSize="small" sx={{ color: darkMode ? '#fff' : '#000' }} />
           </Box>
 
+          {/* Language Toggle */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img
               src="/argentina-flag.png"
@@ -57,28 +81,6 @@ function SimpleNavbar() {
             />
           </Box>
         </Box>
-
-        {/* Menu Hamburger */}
-        <IconButton edge="end" color="inherit" onClick={handleMenuOpen}>
-          <MenuIcon />
-        </IconButton>
-        <Menu
-          anchorEl={menuAnchor}
-          open={Boolean(menuAnchor)}
-          onClose={handleMenuClose}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-        >
-          <MenuItem onClick={handleMenuClose}>Home</MenuItem>
-          <MenuItem onClick={handleMenuClose}>About</MenuItem>
-          <MenuItem onClick={handleMenuClose}>Contact</MenuItem>
-        </Menu>
       </Toolbar>
     </AppBar>
   );
