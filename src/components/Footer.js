@@ -11,7 +11,7 @@ function Footer() {
       sx={{ 
         backgroundColor: darkMode ? '#333' : '#f5f5f5', 
         color: darkMode ? '#fff' : '#000', 
-        padding: '1rem', 
+        padding: '0.5rem',
         position: 'fixed', 
         bottom: 0, 
         width: '100%', 
@@ -19,10 +19,10 @@ function Footer() {
         borderTop: `1px solid ${darkMode ? '#444' : '#ddd'}`,
       }}
     >
-      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 0.5 }}>
         <SocialMedia />
       </Box>
-      <Typography variant="body2">
+      <Typography variant="body2" sx={{ fontSize: '0.8rem' }}>
         Quequeo © - Hosted with AWS Amplify
       </Typography>
     </Box>

@@ -1,14 +1,36 @@
 import React, { useContext } from 'react';
-import { Box, Typography, Avatar, Link, IconButton } from '@mui/material';
-import { GitHub } from '@mui/icons-material';
+import { Box, Typography, Avatar, Chip } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
 import PaginationDots from '../components/PaginationDots';
-import quequeoContent from '../data/quequeoContent';
+import meContent from '../data/meContent';
 
-function Quequeo() {
+function Me() {
   const { language } = useContext(ThemeContext);
-  const content = quequeoContent[language];
+  const content = meContent[language];
+
+  const badges = [
+    'Ruby', 
+    'Ruby on Rails', 
+    'JavaScript', 
+    'React JS', 
+    'Heroku', 
+    'Docker', 
+    'AWS', 
+    'Redis', 
+    'Sidekiq', 
+    'Git', 
+    'Jira', 
+    'RESTful API', 
+    'Postgres', 
+    'SQL', 
+    'RSpec', 
+    'Stripe', 
+    'Cache', 
+    'React Native',
+  ];
+
+  const greenColor = '#48BB78'; // Chakra UI green.400
 
   return (
     <Box
@@ -35,7 +57,7 @@ function Quequeo() {
           top: '2rem',
         }}
       >
-        <NavigationArrow direction="left" path="/experience" label="Experience" />
+        <NavigationArrow direction="left" path="/" label="Quequeo" />
         <Typography
           variant="h4"
           component="h1"
@@ -44,14 +66,15 @@ function Quequeo() {
             position: 'absolute',
             left: '50%',
             transform: 'translateX(-50%)',
+            color: greenColor, // Título en verde
           }}
         >
-          {content.page_title}
+          About Me
         </Typography>
-        <NavigationArrow direction="right" path="/me" label="About Me" />
+        <NavigationArrow direction="right" path="/experience" label="Experience" />
       </Box>
 
-
+      {/* Main content */}
       <Box
         sx={{
           display: 'flex',
@@ -62,8 +85,8 @@ function Quequeo() {
         }}
       >
         <Avatar
-          src="/stack/quequeo.png"
-          alt="Quequeo website"
+          src="/jaime_cartoon.png"
+          alt="Jaime García Méndez"
           sx={{
             width: 300,
             height: 300,
@@ -71,6 +94,7 @@ function Quequeo() {
             boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
           }}
         />
+
         <Box
           sx={{
             maxWidth: '580px',
@@ -78,57 +102,50 @@ function Quequeo() {
             lineHeight: '1.4',
           }}
         >
-          <Typography variant="h5" gutterBottom>
+          <Typography variant="h5" component="h2" gutterBottom>
             {content.title}
           </Typography>
-          <Typography variant="body1">{content.frontend}</Typography>
+          <Typography variant="body1">{content.about}</Typography>
           <Typography variant="body1" mt={2}>
-            {content.backend}
+            {content.experience}
           </Typography>
           <Typography variant="body1" mt={2}>
-            {content.infrastructure}
+            {content.more}
           </Typography>
         </Box>
       </Box>
 
+      {/* Badges Section */}
       <Box
         sx={{
           display: 'flex',
+          flexWrap: 'wrap',
           justifyContent: 'center',
-          gap: '1.5rem',
-          marginTop: '-0.5rem',
+          gap: '0.5rem',
+          marginTop: '1rem',
         }}
       >
-        <Link
-          href="https://github.com/quequeo/api-quequeo/"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
-        >
-          <IconButton color="primary">
-            <GitHub />
-          </IconButton>
-          <Typography variant="body2">API (Rails 8)</Typography>
-        </Link>
-        <Link
-          href="https://github.com/quequeo/web-quequeo/"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
-        >
-          <IconButton color="primary">
-            <GitHub />
-          </IconButton>
-          <Typography variant="body2">Frontend (ReactJS)</Typography>
-        </Link>
+        {badges.map((badge) => (
+          <Chip 
+            key={badge} 
+            label={badge} 
+            variant="outlined" 
+            sx={{
+              fontSize: '0.875rem',
+              padding: '0.25rem 0.5rem',
+              transition: 'color 0.3s, border-color 0.3s',
+              '&:hover': {
+                color: greenColor,
+                borderColor: greenColor,
+              },
+            }} 
+          />
+        ))}
       </Box>
 
-      <PaginationDots
-        currentIndex={0}
-        paths={['/', '/me', '/experience']}
-      />
+      <PaginationDots currentIndex={1} paths={['/', '/me', '/experience']} />
     </Box>
   );
 }
 
-export default Quequeo;
+export default Me;
