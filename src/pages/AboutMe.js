@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Box, Typography, Avatar } from '@mui/material';
+import { Box, Typography, Avatar, CircularProgress } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
 import { motion } from 'framer-motion';
@@ -27,7 +27,21 @@ function AboutMe() {
     fetchContent();
   }, [language]);
 
-  if (loading) return <Typography>Loading...</Typography>;
+  if (loading) {
+    return (
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+        }}
+      >
+        <CircularProgress color="primary" />
+      </Box>
+    );
+  }
+  
   if (error) return <Typography>Error: {error}</Typography>;
 
   const greenColor = '#48BB78';
