@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppBar, Toolbar, Box, Button, IconButton } from '@mui/material';
+import { AppBar, Toolbar, Box, Button, IconButton, Avatar } from '@mui/material';
 import { Brightness7, Bedtime, GitHub, LinkedIn } from '@mui/icons-material';
 import { ThemeContext } from '../context/ThemeContext';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -10,7 +10,7 @@ function SimpleNavbar() {
   const location = useLocation();
 
   const greenColor = '#48BB78';
-  
+
   return (
     <AppBar
       position="static"
@@ -32,6 +32,26 @@ function SimpleNavbar() {
       >
         {/* Left side */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          {/* Logo */}
+          <Avatar
+            src="/logo.png"
+            alt="Quequeo Logo"
+            sx={{
+              width: 30,
+              height: 30,
+              cursor: 'pointer',
+              transition: 'transform 0.3s ease, color 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.1)',
+                backgroundColor: 'transparent',
+              },
+              '&:focus': {
+                backgroundColor: 'transparent',
+              },
+            }}
+            onClick={() => navigate('/')}
+          />
+
           {/* Navigation Links */}
           <Button
             onClick={() => navigate('/')}
@@ -63,7 +83,7 @@ function SimpleNavbar() {
               fontSize: '0.9rem',
               transition: 'transform 0.3s ease, color 0.3s ease',
               '&:hover': {
-                transform: 'scale(1.1)'
+                transform: 'scale(1.1)',
               },
             }}
           >
@@ -79,14 +99,13 @@ function SimpleNavbar() {
               fontSize: '0.9rem',
               transition: 'transform 0.3s ease, color 0.3s ease',
               '&:hover': {
-                transform: 'scale(1.1)'
+                transform: 'scale(1.1)',
               },
             }}
           >
             {language === 'en' ? 'Work Experience' : 'Experiencia Laboral'}
           </Button>
         </Box>
-
 
         {/* Right side */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
