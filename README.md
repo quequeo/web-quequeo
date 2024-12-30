@@ -1,71 +1,71 @@
-# Getting Started with Create React App
+# Web Quequeo 🚀
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to __Web Quequeo__, a modern frontend application developed with __ReactJS__ and styled using __Material-UI__. This application serves as the user interface for the Quequeo platform and is designed to work seamlessly with its corresponding backend API.
 
-## Available Scripts
+## System Requirements 🛠️
 
-In the project directory, you can run:
+__Node.js: 18+__
+__React: 18.3.1__
+__Material-UI: 6.2.1__
+__Framer Motion: 11.13.1__
 
-### `npm start`
+**Project Structure** 📁
+  ```bash
+  src/
+    components/     # Reusable UI components (e.g., Navbar, Footer, Badges)
+    context/        # ThemeContext for handling theme and localization
+    pages/          # Pages like About Me, Quequeo, and Work Experience
+    styles/         # Global styling and theming
+    utils/          # Helper functions and API client setup
+    App.js          # Main app entry point
+    index.js        # React DOM rendering
+  ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# web-quequeo
+__Key Components__
+- SimpleNavbar: Navigation bar used across all pages.
+- Footer: Footer with relevant links and branding.
+- WorkExperienceDetails: Displays details for the Work Experience page.
+- AnimatedText: Adds animation effects to text elements.
+- Badges: Showcases skill or experience badges.
+***
+**Initial Setup** ⚙️ 
+1. Clone the repository
+   ```bash
+   git clone https://github.com/your-username/web-quequeo.git
+   cd web-quequeo
+2. Install dependencies:
+    ```bash
+    npm install
+3. Run the development server:
+    ```bash
+    npm start
+The application will be available at http://localhost:3001
+****
+**Features** 🌟
+1. __Dynamic Content:__
+- Fetches data dynamically using Axios from the backend API.
+- Localized content based on the selected language (en or es).
+2. __Responsive Design:__
+- Optimized for desktop and mobile devices using Material-UI.
+3. __Smooth Animations:__
+- Uses Motion for smooth transitions and animations across.
+4. __Reusable Components:__
+- Modular design ensures code reusability and ease of maintenance.
+****
+**Additional Libraries** 🔧
+- Material-IU: Provides a modern UI framework with customizable components.
+- Framer Motion: Enables smooth animations and transitions.
+- Axios: Handles API requests efficiently.
+***
+**Deployment** 🚢
+The application is deployed using __AWS Amplify__. The deployment process is automated through a __Git push__ workflow, where the main branch triggers a build and deployment in Amplify.
+****
+**Limitations and Future Plans** 🚧
+1. No Testing Framework:
+- Currently, no automated tests are configured (e.g., Jest or Cypress).
+2. Planned Enhancements:
+- Integration of testing frameworks.
+- Further optimization for performance and accessibility.
+***
+**Author** 👥
+Developed by **Jaime F. García Méndez**
