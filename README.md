@@ -7,7 +7,7 @@ Welcome to __Web Quequeo__, a modern frontend application developed with __React
 __Node.js: 18+__
 __React: 18.3.1__
 __Material-UI: 6.2.1__
-__Framer Motion: 11.13.1__
+__Motion: 11.13.1__
 
 **Project Structure** 📁
   ```bash
@@ -54,7 +54,7 @@ The application will be available at http://localhost:3001
 ****
 **Additional Libraries** 🔧
 - Material-IU: Provides a modern UI framework with customizable components.
-- Framer Motion: Enables smooth animations and transitions.
+- Motion: Enables smooth animations and transitions.
 - Axios: Handles API requests efficiently.
 ***
 **Deployment** 🚢

@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { loginUser } from "../utils/api";
 import { AuthContext } from './AuthContext';
 import { useNavigate } from 'react-router-dom';

@@ -3,7 +3,7 @@ import { Box, Typography, Avatar, Link, IconButton, CircularProgress } from '@mu
 import { GitHub } from '@mui/icons-material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import AnimatedText from '../components/AnimatedText';
 import { quequeoContent } from '../utils/web_api';
 

@@ -9,10 +9,12 @@
     "@mui/icons-material": "^6.2.1",
     "@mui/material": "^6.2.1",
     "axios": "^1.7.9",
+    "core-js": "^3.39.0",
     "cra-template": "1.2.0",
+    "framer-motion": "^11.15.0",
+    "joi": "^17.13.3",
     "lucide-react": "^0.469.0",
     "material-ui-flags": "^1.2.4",
-    "motion": "^11.13.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-dropzone": "^14.3.5",
@@ -47,8 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

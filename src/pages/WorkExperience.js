@@ -3,7 +3,7 @@ import { Box, Typography, CircularProgress } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
 import ExperienceDetails from '../components/WorkExperienceDetails';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import { workexperienceContent } from '../utils/web_api';
 
 function WorkExperience() {
@@ -42,7 +42,7 @@ function WorkExperience() {
       </Box>
     );
   }
-  
+
   if (error) return <Typography>Error: {error}</Typography>;
 
   const greenColor = '#48BB78';

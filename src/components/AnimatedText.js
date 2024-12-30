@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const AnimatedText = ({ children, variant, sx, delay, ...props }) => {
   return (

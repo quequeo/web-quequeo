@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Box, Typography, Avatar, CircularProgress } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import AnimatedText from '../components/AnimatedText';
 import { aboutmeContent } from '../utils/web_api';
 import Badges from '../components/Badges';
