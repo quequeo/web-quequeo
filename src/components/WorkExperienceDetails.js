@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Typography, Avatar } from '@mui/material';
+import { Box, Avatar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { motion } from 'framer-motion';
+import AnimatedText from './AnimatedText';
 
 function WorkExperienceDetails({ content }) {
   const theme = useTheme();
@@ -56,30 +56,25 @@ function WorkExperienceDetails({ content }) {
           lineHeight: '1.2',
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <Typography variant="body1" component="p">
-            <strong>Company:</strong> {content.work_experience.company}
-          </Typography>
-          <Typography variant="body1" component="p" mt={1}>
-            <strong>Mode:</strong> {content.work_experience.mode}
-          </Typography>
-          <Typography variant="body1" component="p" mt={1}>
-            <strong>Client:</strong> {content.work_experience.client || 'N/A'}
-          </Typography>
-          <Typography variant="body1" component="p" mt={1}>
-            <strong>Role:</strong> {content.work_experience.role}
-          </Typography>
-          <Typography variant="body1" component="p" mt={1}>
-            <strong>Stack:</strong> {content.work_experience.stack}
-          </Typography>
-          <Typography variant="body1" component="p" mt={1}>
-            {content.work_experience.start_date} - {content.work_experience.end_date}
-          </Typography>
-        </motion.div>
+        
+        <AnimatedText variant="body1" component="p" delay={0.2}>
+          <strong>Company:</strong> {content.work_experience.company}
+        </AnimatedText>
+        <AnimatedText variant="body1" component="p" mt={1} delay={0.4}>
+          <strong>Mode:</strong> {content.work_experience.mode}
+        </AnimatedText>
+        <AnimatedText variant="body1" component="p" mt={1} delay={0.6}>
+          <strong>Client:</strong> {content.work_experience.client || 'N/A'}
+        </AnimatedText>
+        <AnimatedText variant="body1" component="p" mt={1} delay={0.8}>
+          <strong>Role:</strong> {content.work_experience.role}
+        </AnimatedText>
+        <AnimatedText variant="body1" component="p" mt={1} delay={1.0}>
+          <strong>Stack:</strong> {content.work_experience.stack}
+        </AnimatedText>
+        <AnimatedText variant="body1" component="p" mt={1} delay={1.2}>
+          {content.work_experience.start_date} - {content.work_experience.end_date}
+        </AnimatedText>
 
       </Box>
     </Box>

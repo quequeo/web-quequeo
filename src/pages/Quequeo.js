@@ -5,6 +5,7 @@ import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
 import quequeoContent from '../data/quequeoContent';
 import { motion } from 'framer-motion';
+import AnimatedText from '../components/AnimatedText';
 
 function Quequeo() {
   const { language } = useContext(ThemeContext);
@@ -90,44 +91,21 @@ function Quequeo() {
             }}
           >
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Typography variant="h5" gutterBottom>
+            <AnimatedText variant="h5" gutterBottom delay={0.2}>
                 {content.title}
-              </Typography>
-            </motion.div>
+            </AnimatedText>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Typography variant="body1">{content.frontend}</Typography>
-            </motion.div>
-
+            <AnimatedText variant="body1" delay={0.4}>
+                {content.frontend}
+            </AnimatedText>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Typography variant="body1" mt={2}>
+            <AnimatedText variant="body1" mt={2} delay={0.6}>
                 {content.backend}
-              </Typography>
-            </motion.div>
+            </AnimatedText>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <Typography variant="body1" mt={2}>
-                {content.infrastructure}
-              </Typography>
-            </motion.div>
+            <AnimatedText variant="body1" mt={2} delay={0.8}>
+                {content.infraestructure}
+            </AnimatedText>
 
           </Box>
         </Box>

@@ -5,6 +5,7 @@ import NavigationArrow from '../components/NavigationArrow';
 import aboutmeContent from '../data/aboutmeContent';
 import Badges from '../components/Badges';
 import { motion } from 'framer-motion';
+import AnimatedText from '../components/AnimatedText';
 
 function AboutMe() {
   const { language } = useContext(ThemeContext);
@@ -92,43 +93,21 @@ function AboutMe() {
               lineHeight: '1.4',
             }}
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Typography variant="h5" gutterBottom>
-                {content.title}
-              </Typography>
-            </motion.div>
+            <AnimatedText variant="h5" gutterBottom delay={0.2}>
+              {content.title}
+            </AnimatedText>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Typography variant="body1">{content.about}</Typography>
-            </motion.div>
+            <AnimatedText variant="body1" delay={0.4}>
+              {content.about}
+            </AnimatedText>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Typography variant="body1" mt={2}>
-                {content.experience}
-              </Typography>
-            </motion.div>
+            <AnimatedText variant="body1" mt={2} delay={0.6}>
+              {content.experience}
+            </AnimatedText>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-            >
-              <Typography variant="body1" mt={2}>
-                {content.more}
-              </Typography>
-            </motion.div>
+            <AnimatedText variant="body1" mt={2} delay={0.8}>
+              {content.more}
+            </AnimatedText>
 
           </Box>
         </Box>
