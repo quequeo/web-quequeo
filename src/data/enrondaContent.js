@@ -21,7 +21,7 @@ const enrondaContent = {
       role: "Technology Advisor",
       start_date: "2024/February",
       end_date: "2024/August",
-      stack: "Git, Rails 8, HTML, Fly.io, Calendly",
+      stack: "Git, Rails 8, JS, HTML, Fly.io, Calendly.",
       logo: "/enronda.png"
     }
   }

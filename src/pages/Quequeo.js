@@ -4,6 +4,7 @@ import { GitHub } from '@mui/icons-material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
 import quequeoContent from '../data/quequeoContent';
+import { motion } from 'framer-motion';
 
 function Quequeo() {
   const { language } = useContext(ThemeContext);
@@ -17,11 +18,12 @@ function Quequeo() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '6rem',
-        marginTop: '1rem',
-        gap: '2rem',
+        marginTop: '2rem',
+        gap: '3rem',
         position: 'relative',
       }}
     >
+      {/* Navigation and Title */}
       <Box
         sx={{
           display: 'flex',
@@ -51,77 +53,123 @@ function Quequeo() {
         <NavigationArrow direction="right" path="/about_me" label="About Me" />
       </Box>
 
-
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', md: 'row' },
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '3rem',
-        }}
+      {/* Animated Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
-        <Avatar
-          src="/stack/quequeo.png"
-          alt="Quequeo website"
-          sx={{
-            width: 300,
-            height: 300,
-            borderRadius: '50%',
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
-          }}
-        />
         <Box
           sx={{
-            maxWidth: '580px',
-            textAlign: 'justify',
-            lineHeight: '1.4',
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '3rem',
           }}
         >
-          <Typography variant="h5" gutterBottom>
-            {content.title}
-          </Typography>
-          <Typography variant="body1">{content.frontend}</Typography>
-          <Typography variant="body1" mt={2}>
-            {content.backend}
-          </Typography>
-          <Typography variant="body1" mt={2}>
-            {content.infrastructure}
-          </Typography>
-        </Box>
-      </Box>
+          <Avatar
+            src="/stack/quequeo.png"
+            alt="Quequeo website"
+            sx={{
+              width: 300,
+              height: 300,
+              borderRadius: '50%',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+              transition: 'transform 0.3s ease-in-out',
+              '&:hover': {
+                transform: 'scale(1.1)',
+              },
+            }}
+          />
+          <Box
+            sx={{
+              maxWidth: '580px',
+              textAlign: 'justify',
+              lineHeight: '1.4',
+            }}
+          >
 
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '1.5rem',
-          marginTop: '-0.5rem',
-        }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Typography variant="h5" gutterBottom>
+                {content.title}
+              </Typography>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Typography variant="body1">{content.frontend}</Typography>
+            </motion.div>
+
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <Typography variant="body1" mt={2}>
+                {content.backend}
+              </Typography>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              <Typography variant="body1" mt={2}>
+                {content.infrastructure}
+              </Typography>
+            </motion.div>
+
+          </Box>
+        </Box>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 0.9 }}
+        transition={{ duration: 0.5, delay: 1 }}
       >
-        <Link
-          href="https://github.com/quequeo/api-quequeo/"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '4.5rem',
+            marginTop: '-0.5rem',
+          }}
         >
-          <IconButton color="primary">
-            <GitHub />
-          </IconButton>
-          <Typography variant="body2">API (Rails 8)</Typography>
-        </Link>
-        <Link
-          href="https://github.com/quequeo/web-quequeo/"
-          target="_blank"
-          rel="noopener noreferrer"
-          sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
-        >
-          <IconButton color="primary">
-            <GitHub />
-          </IconButton>
-          <Typography variant="body2">Frontend (ReactJS)</Typography>
-        </Link>
-      </Box>
+          <Link
+            href="https://github.com/quequeo/api-quequeo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+          >
+            <IconButton color="primary">
+              <GitHub />
+            </IconButton>
+            <Typography variant="body3">API (Rails 8)</Typography>
+          </Link>
+          <Link
+            href="https://github.com/quequeo/web-quequeo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+          >
+            <IconButton color="primary">
+              <GitHub />
+            </IconButton>
+            <Typography variant="body3">Frontend (ReactJS)</Typography>
+          </Link>
+        </Box>
+      </motion.div>
     </Box>
   );
 }

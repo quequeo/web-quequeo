@@ -7,8 +7,9 @@ import ringContent from '../data/ringContent';
 import oygaContent from '../data/oygaContent';
 import loopContent from '../data/loopContent';
 import enrondaContent from '../data/enrondaContent';
+import { motion } from 'framer-motion';
 
-function Experience() {
+function WorkExperience() {
   const { language } = useContext(ThemeContext);
   const greenColor = '#48BB78';
 
@@ -16,7 +17,7 @@ function Experience() {
     { content: ringContent[language], key: 'ring' },
     { content: loopContent[language], key: 'loop' },
     { content: oygaContent[language], key: 'oyga' },
-    { content: enrondaContent[language], key: 'enronda' }
+    { content: enrondaContent[language], key: 'enronda' },
   ];
 
   return (
@@ -32,7 +33,6 @@ function Experience() {
         position: 'relative',
       }}
     >
-
       <Box
         sx={{
           display: 'flex',
@@ -62,12 +62,18 @@ function Experience() {
         <NavigationArrow direction="right" path="/" label="Quequeo" />
       </Box>
 
-
       {experiences.map(({ content, key }) => (
-        <ExperienceDetails key={key} content={content} />
+        <motion.div
+          key={key}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: key === 'ring' ? 0 : 0.2 }}
+        >
+          <ExperienceDetails content={content} />
+        </motion.div>
       ))}
     </Box>
   );
 }
 
-export default Experience;
+export default WorkExperience;

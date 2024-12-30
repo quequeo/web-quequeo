@@ -8,8 +8,8 @@ const oygaContent = {
       start_date: "2018/Enero",
       end_date: "2019/Mayo",
       role: "Desarrollador Full Stack",
-      stack: "Javascript, HTML, Liquid, Git, Sidekiq, Rails API, Heroku",
-      logo: "/oyga.jpeg"
+      stack: "Javascript, Liquid, Git, Sidekiq, Rails API",
+      logo: "/oyga.png"
     }
   },
   en: {
@@ -21,8 +21,8 @@ const oygaContent = {
       start_date: "2018/January",
       end_date: "2019/May",
       role: "Full Stack Developer",
-      stack: "Javascript, HTML, Git, Sidekiq, Rails API, Heroku",
-      logo: "/oyga.jpeg"
+      stack: "Javascript, Git, Sidekiq, Rails API, Heroku",
+      logo: "/oyga.png"
     }
   }
 };

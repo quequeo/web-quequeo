@@ -32,55 +32,61 @@ function SimpleNavbar() {
       >
         {/* Left side */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          { location.pathname === '/' ? (
-                <Button
-                onClick={() => navigate('/')}
-                sx={{ color: greenColor, textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
-              >
-                Quequeo
-              </Button>
-            ) : (
-              <Button
-              onClick={() => navigate('/')}
-              sx={{ color: 'inherit', textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
-            >
-              Quequeo
-            </Button>
-            )
-          }
-          { location.pathname === '/about_me' ? (
-            <Button
-              onClick={() => navigate('/about_me')}
-              sx={{ color: greenColor, textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
-            >
-              {language === 'en' ? 'About Me' : 'Sobre mí'}
-            </Button>
-            ) : (
-              <Button
-                onClick={() => navigate('/about_me')}
-                sx={{ color: 'inherit', textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
-              >
-                {language === 'en' ? 'About Me' : 'Sobre mí'}
-              </Button>
-            )
-          }
-          { location.pathname === '/work_experience' ? (
-            <Button
-              onClick={() => navigate('/work_experience')}
-              sx={{ color: greenColor, textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
-            >
-              {language === 'en' ? 'Work Experience' : 'Experiencia Laboral'}
-            </Button>
-            ) : (
-              <Button
-                onClick={() => navigate('/work_experience')}
-                sx={{ color: 'inherit', textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
-              >
-                {language === 'en' ? 'Work Experience' : 'Experiencia Laboral'}
-              </Button>
-            )
-          }
+          {/* Navigation Links */}
+          <Button
+            onClick={() => navigate('/')}
+            disableRipple
+            sx={{
+              color: location.pathname === '/' ? greenColor : 'inherit',
+              textTransform: 'none',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              transition: 'transform 0.3s ease, color 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.1)',
+                backgroundColor: 'transparent',
+              },
+              '&:focus': {
+                backgroundColor: 'transparent',
+              },
+            }}
+          >
+            Quequeo
+          </Button>
+
+          <Button
+            onClick={() => navigate('/about_me')}
+            sx={{
+              color: location.pathname === '/about_me' ? greenColor : 'inherit',
+              textTransform: 'none',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              transition: 'transform 0.3s ease, color 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.1)'
+              },
+            }}
+          >
+            {language === 'en' ? 'About Me' : 'Sobre mí'}
+          </Button>
+
+          <Button
+            onClick={() => navigate('/work_experience')}
+            sx={{
+              color: location.pathname === '/work_experience' ? greenColor : 'inherit',
+              textTransform: 'none',
+              fontWeight: 600,
+              fontSize: '0.9rem',
+              transition: 'transform 0.3s ease, color 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.1)'
+              },
+            }}
+          >
+            {language === 'en' ? 'Work Experience' : 'Experiencia Laboral'}
+          </Button>
         </Box>
+
 
         {/* Right side */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
