@@ -28,8 +28,6 @@ function Quequeo() {
     fetchContent();
   }, [language]);
 
-  console.log(content);
-
   if (loading) {
     return (
       <Box
