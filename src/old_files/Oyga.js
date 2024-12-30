@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
-import { ThemeContext } from '../../context/ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../NavigationArrow';
 import oygaContent from '../../data/oygaContent';
 

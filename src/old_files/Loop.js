@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
-import { ThemeContext } from '../../context/ThemeContext';
-import NavigationArrow from '../NavigationArrow';
+import { ThemeContext } from '../context/ThemeContext';
+import NavigationArrow from '../components/NavigationArrow';
 import loopContent from '../../data/loopContent';
 
 function Loop() {

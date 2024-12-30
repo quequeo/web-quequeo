@@ -29,8 +29,8 @@ function WorkExperienceDetails({ content }) {
           }}
         >
         <Avatar
-          src={content.work_experience.logo}
-          alt={content.work_experience.company}
+          src={content.logo}
+          alt={content.company}
           sx={{
             width: 200,
             height: 200,
@@ -41,7 +41,7 @@ function WorkExperienceDetails({ content }) {
               transform: 'scale(1.1)',
             },
             backgroundColor:
-              content.work_experience.logo === '/loopstudio.png' && isDarkMode
+              content.logo === '/loopstudio.png' && isDarkMode
                 ? '#4a4a4a'
                 : 'transparent',
           }}
@@ -58,22 +58,22 @@ function WorkExperienceDetails({ content }) {
       >
         
         <AnimatedText variant="body1" component="p" delay={0.2}>
-          <strong>Company:</strong> {content.work_experience.company}
+          <strong>Company:</strong> {content.company}
         </AnimatedText>
         <AnimatedText variant="body1" component="p" mt={1} delay={0.4}>
-          <strong>Mode:</strong> {content.work_experience.mode}
+          <strong>Mode:</strong> {content.mode}
         </AnimatedText>
         <AnimatedText variant="body1" component="p" mt={1} delay={0.6}>
-          <strong>Client:</strong> {content.work_experience.client || 'N/A'}
+          <strong>Client:</strong> {content.client || 'N/A'}
         </AnimatedText>
         <AnimatedText variant="body1" component="p" mt={1} delay={0.8}>
-          <strong>Role:</strong> {content.work_experience.role}
+          <strong>Role:</strong> {content.role}
         </AnimatedText>
         <AnimatedText variant="body1" component="p" mt={1} delay={1.0}>
-          <strong>Stack:</strong> {content.work_experience.stack}
+          <strong>Stack:</strong> {content.stack}
         </AnimatedText>
         <AnimatedText variant="body1" component="p" mt={1} delay={1.2}>
-          {content.work_experience.start_date} - {content.work_experience.end_date}
+          {content.start_date} - {content.end_date}
         </AnimatedText>
 
       </Box>

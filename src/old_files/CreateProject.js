@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { Box, Button, TextField, Typography, Avatar } from "@mui/material";
-import API_URL from "../../utils/api";
+import API_URL from "../utils/api";
 import { useNavigate } from "react-router-dom";
 
 const CreateProject = () => {

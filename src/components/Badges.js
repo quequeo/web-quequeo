@@ -1,10 +1,29 @@
 import React from 'react';
 import { Box, Chip } from '@mui/material';
-import badges from '../data/badgesContent';
 
 function Badges() {
 
-  const list_of_badges = badges;
+  const badges = [
+    'Ruby', 
+    'Ruby on Rails', 
+    'JavaScript', 
+    'React JS', 
+    'Heroku', 
+    'Docker', 
+    'AWS', 
+    'Redis', 
+    'Sidekiq', 
+    'Git', 
+    'Jira', 
+    'RESTful API', 
+    'Postgres', 
+    'SQL', 
+    'RSpec', 
+    'Stripe', 
+    'Cache', 
+    'React Native',
+  ];
+
   const greenColor = '#48BB78';
 
   return (
@@ -28,7 +47,7 @@ function Badges() {
               gap: '0.5rem',
             }}
           >
-            {list_of_badges.slice(startIndex, startIndex + 9).map((badge) => (
+            {badges.slice(startIndex, startIndex + 9).map((badge) => (
               <Chip 
                 key={badge} 
                 label={badge} 

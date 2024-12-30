@@ -4,7 +4,7 @@ import { IconButton } from "@mui/material";
 import DeleteSweepOutlinedIcon from '@mui/icons-material/DeleteSweepOutlined';
 import EditIcon from '@mui/icons-material/Edit';
 import axios from "axios";
-import API_URL from "../../utils/api";
+import API_URL from "../utils/api";
 import { useNavigate } from "react-router-dom";
 import "../styles/ProjectDetails.css";
 import { AuthContext } from './AuthContext';

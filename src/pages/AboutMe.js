@@ -1,15 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import aboutmeContent from '../data/aboutmeContent';
-import Badges from '../components/Badges';
 import { motion } from 'framer-motion';
 import AnimatedText from '../components/AnimatedText';
+import { aboutmeContent } from '../utils/web_api';
+import Badges from '../components/Badges';
 
 function AboutMe() {
   const { language } = useContext(ThemeContext);
-  const content = aboutmeContent[language];
+  const [content, setContent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const data = await aboutmeContent();
+        setContent(data[language]);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchContent();
+  }, [language]);
+
+  if (loading) return <Typography>Loading...</Typography>;
+  if (error) return <Typography>Error: {error}</Typography>;
 
   const greenColor = '#48BB78';
 
@@ -96,19 +115,15 @@ function AboutMe() {
             <AnimatedText variant="h5" gutterBottom delay={0.2}>
               {content.title}
             </AnimatedText>
-
             <AnimatedText variant="body1" delay={0.4}>
               {content.about}
             </AnimatedText>
-
             <AnimatedText variant="body1" mt={2} delay={0.6}>
               {content.experience}
             </AnimatedText>
-
             <AnimatedText variant="body1" mt={2} delay={0.8}>
               {content.more}
             </AnimatedText>
-
           </Box>
         </Box>
       </motion.div>

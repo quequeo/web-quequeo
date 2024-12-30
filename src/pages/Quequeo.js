@@ -1,15 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Box, Typography, Avatar, Link, IconButton } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import quequeoContent from '../data/quequeoContent';
 import { motion } from 'framer-motion';
 import AnimatedText from '../components/AnimatedText';
+import { quequeoContent } from '../utils/web_api';
 
 function Quequeo() {
   const { language } = useContext(ThemeContext);
-  const content = quequeoContent[language];
+  const [content, setContent] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchContent = async () => {
+      try {
+        const data = await quequeoContent();
+        setContent(data[language]);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchContent();
+  }, [language]);
+
+  if (loading) return <Typography>Loading...</Typography>;
+  if (error) return <Typography>Error: {error}</Typography>;
 
   return (
     <Box
@@ -90,23 +110,18 @@ function Quequeo() {
               lineHeight: '1.4',
             }}
           >
-
             <AnimatedText variant="h5" gutterBottom delay={0.2}>
-                {content.title}
+              {content.title}
             </AnimatedText>
-
             <AnimatedText variant="body1" delay={0.4}>
-                {content.frontend}
+              {content.frontend}
             </AnimatedText>
-            
             <AnimatedText variant="body1" mt={2} delay={0.6}>
-                {content.backend}
+              {content.backend}
             </AnimatedText>
-
             <AnimatedText variant="body1" mt={2} delay={0.8}>
-                {content.infraestructure}
+              {content.infrastructure}
             </AnimatedText>
-
           </Box>
         </Box>
       </motion.div>

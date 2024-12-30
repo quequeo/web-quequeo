@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Box, Typography, Avatar, Card, CardContent } from '@mui/material';
 import experiencesData from '../../data/experiencesData';
 import NavigationArrow from '../NavigationArrow';
-import { ThemeContext } from '../../context/ThemeContext';
+import { ThemeContext } from '../context/ThemeContext';
 
 function Experiences() {
   const { language } = useContext(ThemeContext);
