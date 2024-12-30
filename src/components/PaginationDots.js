@@ -14,7 +14,9 @@ function PaginationDots({ currentIndex, paths }) {
         justifyContent: 'center',
         alignItems: 'center',
         mt: 4,
-        marginTop: '2px'
+        marginTop: '2px',
+        marginBottom: '8px',
+        paddingBottom: '0.5rem',
       }}
     >
       {paths.map((path, index) => (

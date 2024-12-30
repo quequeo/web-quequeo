@@ -1,6 +1,6 @@
 {
-  "short_name": "Quequeo App",
-  "name": "My personal website",
+  "short_name": "Quequeo",
+  "name": "React & Rails",
   "icons": [
     {
       "src": "favicon.ico",

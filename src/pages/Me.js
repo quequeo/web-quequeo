@@ -1,36 +1,15 @@
 import React, { useContext } from 'react';
-import { Box, Typography, Avatar, Chip } from '@mui/material';
+import { Box, Typography, Avatar } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import PaginationDots from '../components/PaginationDots';
 import meContent from '../data/meContent';
+import Badges from '../components/Badges';
 
 function Me() {
   const { language } = useContext(ThemeContext);
   const content = meContent[language];
 
-  const badges = [
-    'Ruby', 
-    'Ruby on Rails', 
-    'JavaScript', 
-    'React JS', 
-    'Heroku', 
-    'Docker', 
-    'AWS', 
-    'Redis', 
-    'Sidekiq', 
-    'Git', 
-    'Jira', 
-    'RESTful API', 
-    'Postgres', 
-    'SQL', 
-    'RSpec', 
-    'Stripe', 
-    'Cache', 
-    'React Native',
-  ];
-
-  const greenColor = '#48BB78'; // Chakra UI green.400
+  const greenColor = '#48BB78';
 
   return (
     <Box
@@ -40,12 +19,11 @@ function Me() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '6rem',
-        marginTop: '6rem',
-        gap: '2rem',
+        marginTop: '1rem',
+        gap: '1.7rem',
         position: 'relative',
       }}
     >
-      {/* Navigation and title */}
       <Box
         sx={{
           display: 'flex',
@@ -66,15 +44,15 @@ function Me() {
             position: 'absolute',
             left: '50%',
             transform: 'translateX(-50%)',
-            color: greenColor, // Título en verde
+            color: greenColor,
+            fontWeight: 550,
           }}
         >
-          About Me
+          {content.page_title}
         </Typography>
         <NavigationArrow direction="right" path="/experience" label="Experience" />
       </Box>
 
-      {/* Main content */}
       <Box
         sx={{
           display: 'flex',
@@ -114,36 +92,8 @@ function Me() {
           </Typography>
         </Box>
       </Box>
-
-      {/* Badges Section */}
-      <Box
-        sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '0.5rem',
-          marginTop: '1rem',
-        }}
-      >
-        {badges.map((badge) => (
-          <Chip 
-            key={badge} 
-            label={badge} 
-            variant="outlined" 
-            sx={{
-              fontSize: '0.875rem',
-              padding: '0.25rem 0.5rem',
-              transition: 'color 0.3s, border-color 0.3s',
-              '&:hover': {
-                color: greenColor,
-                borderColor: greenColor,
-              },
-            }} 
-          />
-        ))}
-      </Box>
-
-      <PaginationDots currentIndex={1} paths={['/', '/me', '/experience']} />
+      
+      <Badges />
     </Box>
   );
 }

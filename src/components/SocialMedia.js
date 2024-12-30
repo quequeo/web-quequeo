@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { GitHub, LinkedIn, Instagram, WhatsApp } from '@mui/icons-material';
+import { GitHub, LinkedIn } from '@mui/icons-material';
 import { Box, IconButton } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 
@@ -25,24 +25,6 @@ function SocialMedia() {
         sx={{ color: darkMode ? '#fff' : '#000' }}
       >
         <LinkedIn fontSize="medium" />
-      </IconButton>
-      <IconButton
-        component="a"
-        href="https://www.instagram.com/jaimegarciamendez/"
-        target="_blank"
-        rel="noopener noreferrer"
-        sx={{ color: darkMode ? '#fff' : '#000' }}
-      >
-        <Instagram fontSize="medium" />
-      </IconButton>
-      <IconButton
-        component="a"
-        href="https://wa.me/541162688950"
-        target="_blank"
-        rel="noopener noreferrer"
-        sx={{ color: darkMode ? '#fff' : '#000' }}
-      >
-        <WhatsApp fontSize="medium" />
       </IconButton>
     </Box>
   );

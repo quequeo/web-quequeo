@@ -3,7 +3,6 @@ import { Box, Typography, Avatar, Link, IconButton } from '@mui/material';
 import { GitHub } from '@mui/icons-material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import PaginationDots from '../components/PaginationDots';
 import quequeoContent from '../data/quequeoContent';
 
 function Quequeo() {
@@ -18,12 +17,11 @@ function Quequeo() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '6rem',
-        marginTop: '2rem',
+        marginTop: '1rem',
         gap: '2rem',
         position: 'relative',
       }}
     >
-      {/* Navigation and title */}
       <Box
         sx={{
           display: 'flex',
@@ -44,6 +42,8 @@ function Quequeo() {
             position: 'absolute',
             left: '50%',
             transform: 'translateX(-50%)',
+            color: '#48BB78',
+            fontWeight: 550,
           }}
         >
           {content.page_title}
@@ -122,11 +122,6 @@ function Quequeo() {
           <Typography variant="body2">Frontend (ReactJS)</Typography>
         </Link>
       </Box>
-
-      <PaginationDots
-        currentIndex={0}
-        paths={['/', '/me', '/experience']}
-      />
     </Box>
   );
 }
