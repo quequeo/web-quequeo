@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
-import { ThemeContext } from '../context/ThemeContext';
-import NavigationArrow from '../components/NavigationArrow';
-import oygaContent from '../data/oygaContent';
+import { ThemeContext } from '../../context/ThemeContext';
+import NavigationArrow from '../NavigationArrow';
+import ringContent from '../../data/ringContent';
 
-function Oyga() {
+function Ring() {
   const { language } = useContext(ThemeContext);
-  const content = oygaContent[language];
+  const content = ringContent[language];
 
   return (
     <Box
@@ -21,7 +21,7 @@ function Oyga() {
         position: 'relative',
       }}
     >
-      <NavigationArrow direction="left" path="/loop" />
+      <NavigationArrow direction="left" path="/quequeo" />
 
       <Box
         sx={{
@@ -57,10 +57,10 @@ function Oyga() {
             <strong>Company:</strong> {content.work_experience.company}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
-            <strong>Client:</strong> {content.work_experience.client || 'N/A'}
+            <strong>Client:</strong> {content.work_experience.client}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
-            <strong>Role:</strong> {content.work_experience.description}
+            <strong>Role:</strong> {content.work_experience.role}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
             <strong>Stack:</strong> {content.work_experience.stack}
@@ -71,9 +71,9 @@ function Oyga() {
         </Box>
       </Box>
 
-      <NavigationArrow direction="right" path="/" />
+      <NavigationArrow direction="right" path="/loop" />
     </Box>
   );
 }
 
-export default Oyga;
+export default Ring;

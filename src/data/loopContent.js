@@ -3,10 +3,11 @@ const loopContent = {
     title: 'Experiencia Laboral',
     work_experience: {
       company: "Loopstudio",
+      mode: "Contractor - Full time",
       client: "Abstract US, SFR3, Techunited",
+      role: "Desarrollador Full Stack",
       start_date: "2019/Junio",
       end_date: "2022/Mayo",
-      description: "Desarrollador Full Stack",
       stack: "Jira, Git, Sidekiq, Rails API, Heroku, React",
       logo: "/loopstudio.png"
     }
@@ -15,10 +16,11 @@ const loopContent = {
     title: 'Work Experience',
     work_experience: {
       company: "Loopstudio",
+      mode: "Contractor - Full time",
       client: "Abstract US, SFR3, Techunited",
+      role: "Full Stack Developer",
       start_date: "2019/June",
       end_date: "2022/May",
-      description: "Full Stack Developer",
       stack: "Jira, Git, Sidekiq, Rails API, Heroku, React",
       logo: "/loopstudio.png"
     }

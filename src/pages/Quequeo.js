@@ -33,7 +33,7 @@ function Quequeo() {
           top: '2rem',
         }}
       >
-        <NavigationArrow direction="left" path="/experience" label="Experience" />
+        <NavigationArrow direction="left" path="/work_experience" label="Work Experience" />
         <Typography
           variant="h4"
           component="h1"
@@ -48,7 +48,7 @@ function Quequeo() {
         >
           {content.page_title}
         </Typography>
-        <NavigationArrow direction="right" path="/me" label="About Me" />
+        <NavigationArrow direction="right" path="/about_me" label="About Me" />
       </Box>
 
 

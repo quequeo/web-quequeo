@@ -3,6 +3,7 @@ const ringContent = {
     title: 'Experiencia Laboral',
     work_experience: {
         company: "Deviget",
+        mode: "Contractor - Full time",
         client: "Ring LLC",
         start_date: "2022/June",
         end_date: "Actualidad",
@@ -15,6 +16,7 @@ const ringContent = {
     title: 'Work Experience',
     work_experience: {
       company: "Deviget",
+      mode: "Contractor - Full time",
       client: "Ring LLC",
       start_date: "2022/June",
       end_date: "Current",

@@ -48,35 +48,35 @@ function SimpleNavbar() {
             </Button>
             )
           }
-          { location.pathname === '/me' ? (
+          { location.pathname === '/about_me' ? (
             <Button
-              onClick={() => navigate('/me')}
+              onClick={() => navigate('/about_me')}
               sx={{ color: greenColor, textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
             >
               {language === 'en' ? 'About Me' : 'Sobre mí'}
             </Button>
             ) : (
               <Button
-                onClick={() => navigate('/me')}
+                onClick={() => navigate('/about_me')}
                 sx={{ color: 'inherit', textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
               >
                 {language === 'en' ? 'About Me' : 'Sobre mí'}
               </Button>
             )
           }
-          { location.pathname === '/experience' ? (
+          { location.pathname === '/work_experience' ? (
             <Button
-              onClick={() => navigate('/experience')}
+              onClick={() => navigate('/work_experience')}
               sx={{ color: greenColor, textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
             >
-              {language === 'en' ? 'Experience' : 'Experiencia'}
+              {language === 'en' ? 'Work Experience' : 'Experiencia Laboral'}
             </Button>
             ) : (
               <Button
-                onClick={() => navigate('/experience')}
+                onClick={() => navigate('/work_experience')}
                 sx={{ color: 'inherit', textTransform: 'none', fontWeight: 600, fontSize: '0.9rem' }}
               >
-                {language === 'en' ? 'Experience' : 'Experiencia'}
+                {language === 'en' ? 'Work Experience' : 'Experiencia Laboral'}
               </Button>
             )
           }

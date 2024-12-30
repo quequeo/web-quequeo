@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
-import { ThemeContext } from '../context/ThemeContext';
-import NavigationArrow from '../components/NavigationArrow';
-import ringContent from '../data/ringContent';
+import { ThemeContext } from '../../context/ThemeContext';
+import NavigationArrow from '../NavigationArrow';
+import loopContent from '../../data/loopContent';
 
-function Ring() {
+function Loop() {
   const { language } = useContext(ThemeContext);
-  const content = ringContent[language];
+  const content = loopContent[language];
 
   return (
     <Box
@@ -21,7 +21,7 @@ function Ring() {
         position: 'relative',
       }}
     >
-      <NavigationArrow direction="left" path="/quequeo" />
+      <NavigationArrow direction="left" path="/ring" />
 
       <Box
         sx={{
@@ -60,7 +60,7 @@ function Ring() {
             <strong>Client:</strong> {content.work_experience.client}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
-            <strong>Role:</strong> {content.work_experience.role}
+            <strong>Role:</strong> {content.work_experience.description}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
             <strong>Stack:</strong> {content.work_experience.stack}
@@ -71,9 +71,9 @@ function Ring() {
         </Box>
       </Box>
 
-      <NavigationArrow direction="right" path="/loop" />
+      <NavigationArrow direction="right" path="/oyga" />
     </Box>
   );
 }
 
-export default Ring;
+export default Loop;

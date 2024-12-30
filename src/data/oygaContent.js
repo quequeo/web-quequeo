@@ -3,10 +3,11 @@ const oygaContent = {
     title: 'Experiencia Laboral',
     work_experience: {
       company: "Oyga!",
+      mode: "Empleado - Full time",
       client: "",
       start_date: "2018/Enero",
       end_date: "2019/Mayo",
-      description: "Desarrollador Full Stack",
+      role: "Desarrollador Full Stack",
       stack: "Javascript, HTML, Liquid, Git, Sidekiq, Rails API, Heroku",
       logo: "/oyga.jpeg"
     }
@@ -15,10 +16,11 @@ const oygaContent = {
     title: 'Work Experience',
     work_experience: {
       company: "Oyga!",
+      mode: "Employee - Full time",
       client: "",
       start_date: "2018/January",
       end_date: "2019/May",
-      description: "Full Stack Developer",
+      role: "Full Stack Developer",
       stack: "Javascript, HTML, Git, Sidekiq, Rails API, Heroku",
       logo: "/oyga.jpeg"
     }

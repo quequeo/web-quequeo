@@ -8,7 +8,7 @@ function Footer() {
   const { darkMode } = useContext(ThemeContext);
   const location = useLocation();
 
-  const paths = ['/', '/me', '/experience'];
+  const paths = ['/', '/about_me', '/work_experience'];
   const currentIndex = paths.indexOf(location.pathname);
 
   return (

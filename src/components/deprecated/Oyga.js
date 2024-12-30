@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
-import { ThemeContext } from '../context/ThemeContext';
-import NavigationArrow from '../components/NavigationArrow';
-import loopContent from '../data/loopContent';
+import { ThemeContext } from '../../context/ThemeContext';
+import NavigationArrow from '../NavigationArrow';
+import oygaContent from '../../data/oygaContent';
 
-function Loop() {
+function Oyga() {
   const { language } = useContext(ThemeContext);
-  const content = loopContent[language];
+  const content = oygaContent[language];
 
   return (
     <Box
@@ -21,7 +21,7 @@ function Loop() {
         position: 'relative',
       }}
     >
-      <NavigationArrow direction="left" path="/ring" />
+      <NavigationArrow direction="left" path="/loop" />
 
       <Box
         sx={{
@@ -57,7 +57,7 @@ function Loop() {
             <strong>Company:</strong> {content.work_experience.company}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
-            <strong>Client:</strong> {content.work_experience.client}
+            <strong>Client:</strong> {content.work_experience.client || 'N/A'}
           </Typography>
           <Typography variant="body1" component="p" mt={2}>
             <strong>Role:</strong> {content.work_experience.description}
@@ -71,9 +71,9 @@ function Loop() {
         </Box>
       </Box>
 
-      <NavigationArrow direction="right" path="/oyga" />
+      <NavigationArrow direction="right" path="/" />
     </Box>
   );
 }
 
-export default Loop;
+export default Oyga;

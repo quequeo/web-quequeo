@@ -1,6 +1,6 @@
 const total_years = new Date().getFullYear() - 2017;
 
-const meContent = {
+const aboutmeContent = {
   es: {
     page_title: 'Sobre mí',
     title: 'Jaime García Méndez',
@@ -17,4 +17,4 @@ const meContent = {
   },
 };
 
-export default meContent;
+export default aboutmeContent;

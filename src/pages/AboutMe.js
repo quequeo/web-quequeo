@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import { Box, Typography, Avatar } from '@mui/material';
 import { ThemeContext } from '../context/ThemeContext';
 import NavigationArrow from '../components/NavigationArrow';
-import meContent from '../data/meContent';
+import aboutmeContent from '../data/aboutmeContent';
 import Badges from '../components/Badges';
 
-function Me() {
+function AboutMe() {
   const { language } = useContext(ThemeContext);
-  const content = meContent[language];
+  const content = aboutmeContent[language];
 
   const greenColor = '#48BB78';
 
@@ -50,7 +50,7 @@ function Me() {
         >
           {content.page_title}
         </Typography>
-        <NavigationArrow direction="right" path="/experience" label="Experience" />
+        <NavigationArrow direction="right" path="/work_experience" label="Work Experience" />
       </Box>
 
       <Box
@@ -98,4 +98,4 @@ function Me() {
   );
 }
 
-export default Me;
+export default AboutMe;
