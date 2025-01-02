@@ -33,7 +33,7 @@ function SimpleNavbar() {
   };
 
   const menuItems = [
-    { label: language === 'en' ? 'Quequeo' : 'Inicio', path: '/' },
+    { label: language === 'en' ? 'Quequeo' : 'Quequeo', path: '/' },
     { label: language === 'en' ? 'About Me' : 'Sobre mí', path: '/about_me' },
     { label: language === 'en' ? 'Work Experience' : 'Experiencia Laboral', path: '/work_experience' },
   ];
