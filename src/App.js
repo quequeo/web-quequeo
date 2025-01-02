@@ -6,6 +6,7 @@ import Quequeo from './pages/Quequeo';
 import SimpleNavbar from './components/SimpleNavbar';
 import Footer from './components/Footer';
 import WorkExperience from './pages/WorkExperience';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/quequeo" element={<Quequeo />} />
           <Route path="/about_me" element={<AboutMe />} />
           <Route path="/work_experience" element={<WorkExperience />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </Router>
