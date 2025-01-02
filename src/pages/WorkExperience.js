@@ -16,7 +16,6 @@ function WorkExperience() {
     const fetchContent = async () => {
       try {
         const data = await workexperienceContent();
-        console.log(data);
         const experiencesData = data[language]?.experiences || [];
         setExperiences(experiencesData);
       } catch (err) {
@@ -54,10 +53,12 @@ function WorkExperience() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '6rem',
+        padding: { xs: '2rem', md: '4rem', lg: '6rem' },
         marginTop: '2rem',
-        gap: '3rem',
+        marginBottom: '4rem',
+        gap: '2rem',
         position: 'relative',
+        maxWidth: '100%',
       }}
     >
       <Box
@@ -68,12 +69,13 @@ function WorkExperience() {
           width: '100%',
           maxWidth: '800px',
           position: 'absolute',
-          top: '2rem',
+          top: '1.5rem',
+          padding: { xs: '0 1rem', md: '0' },
         }}
       >
         <NavigationArrow direction="left" path="/about_me" label="About Me" />
         <Typography
-          variant="h4"
+          variant="h5"
           component="h1"
           textAlign="center"
           sx={{
@@ -82,6 +84,7 @@ function WorkExperience() {
             transform: 'translateX(-50%)',
             color: greenColor,
             fontWeight: 550,
+            fontSize: { xs: '1.25rem', md: '1.75rem', lg: '2rem' },
           }}
         >
           {language === 'en' ? 'Work Experience' : 'Experiencia Laboral'}
@@ -89,16 +92,29 @@ function WorkExperience() {
         <NavigationArrow direction="right" path="/" label="Quequeo" />
       </Box>
 
-      {experiences.map((content, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: index * 0.2 }}
-        >
-          <ExperienceDetails content={content} />
-        </motion.div>
-      ))}
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, 
+          gap: '2rem',
+          width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto', 
+          justifyContent: 'center', 
+        }}
+      >
+        {experiences.map((content, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
+            <ExperienceDetails content={content} />
+          </motion.div>
+        ))}
+      </Box>
+
     </Box>
   );
 }

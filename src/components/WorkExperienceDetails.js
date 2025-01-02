@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Avatar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import AnimatedText from './AnimatedText';
+import { translations } from '../utils/translations';
+import { ThemeContext } from '../context/ThemeContext';
 
 function WorkExperienceDetails({ content }) {
   const theme = useTheme();
+  const { language } = useContext(ThemeContext);
   const isDarkMode = theme.palette.mode === 'dark';
+  const t = translations[language] || translations.en;
 
   return (
     <Box
@@ -14,26 +18,26 @@ function WorkExperienceDetails({ content }) {
         flexDirection: { xs: 'column', md: 'row' },
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '3rem',
-        marginLeft: '6rem',
+        gap: '2rem',
         width: '100%',
         maxWidth: '850px',
+        marginTop: '1rem',
       }}
     >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            flex: '0 0 200px',
-            width: '200px',
-          }}
-        >
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          flex: '0 0 200px',
+          width: '500px',
+        }}
+      >
         <Avatar
           src={content.logo}
           alt={content.company}
           sx={{
-            width: 200,
-            height: 200,
+            width: 150,
+            height: 150,
             borderRadius: '50%',
             boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
             transition: 'transform 0.3s ease-in-out',
@@ -46,36 +50,34 @@ function WorkExperienceDetails({ content }) {
                 : 'transparent',
           }}
         />
-
       </Box>
 
       <Box
         sx={{
           flex: '1',
           textAlign: 'justify',
-          lineHeight: '1.2',
+          lineHeight: '1',
+          fontSize: { xs: '0.7rem', md: '0.9rem' }
         }}
       >
-        
-        <AnimatedText variant="body1" component="p" delay={0.2}>
-          <strong>Company:</strong> {content.company}
+        <AnimatedText variant="body1" component="p" delay={0.2} sx={{ fontSize: 'inherit', lineHeight: 'inherit'  }}>
+          <strong>{t.company}:</strong> {content.company}
         </AnimatedText>
-        <AnimatedText variant="body1" component="p" mt={1} delay={0.4}>
-          <strong>Mode:</strong> {content.mode}
+        <AnimatedText variant="body1" component="p" mt={1} delay={0.4} sx={{ fontSize: 'inherit', lineHeight: 'inherit'  }}>
+          <strong>{t.mode}:</strong> {content.mode}
         </AnimatedText>
-        <AnimatedText variant="body1" component="p" mt={1} delay={0.6}>
-          <strong>Client:</strong> {content.client || 'N/A'}
+        <AnimatedText variant="body1" component="p" mt={1} delay={0.6} sx={{ fontSize: 'inherit', lineHeight: 'inherit'  }}>
+          <strong>{t.client}:</strong> {content.client || 'N/A'}
         </AnimatedText>
-        <AnimatedText variant="body1" component="p" mt={1} delay={0.8}>
-          <strong>Role:</strong> {content.role}
+        <AnimatedText variant="body1" component="p" mt={1} delay={0.8} sx={{ fontSize: 'inherit', lineHeight: 'inherit'  }}>
+          <strong>{t.role}:</strong> {content.role}
         </AnimatedText>
-        <AnimatedText variant="body1" component="p" mt={1} delay={1.0}>
-          <strong>Stack:</strong> {content.stack}
+        <AnimatedText variant="body1" component="p" mt={1} delay={1.0} sx={{ fontSize: 'inherit', lineHeight: 'inherit'  }}>
+          <strong>{t.stack}:</strong> {content.stack}
         </AnimatedText>
-        <AnimatedText variant="body1" component="p" mt={1} delay={1.2}>
-          {content.start_date} - {content.end_date}
+        <AnimatedText variant="body1" component="p" mt={1} delay={1.2} sx={{ fontSize: 'inherit', lineHeight: 'inherit'  }}>
+          <strong>{t.dates}:</strong> {content.start_date} - {content.end_date}
         </AnimatedText>
-
       </Box>
     </Box>
   );

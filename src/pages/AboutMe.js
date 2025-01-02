@@ -105,7 +105,7 @@ function AboutMe() {
           }}
         >
           <Avatar
-            src="/jaime_cartoon.png"
+            src="/cartoon.png"
             alt="Jaime García Méndez"
             sx={{
               width: 300,

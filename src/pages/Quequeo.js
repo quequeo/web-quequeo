@@ -35,7 +35,7 @@ function Quequeo() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '100vh',
+          height: '300vh',
         }}
       >
         <CircularProgress color="primary" />
