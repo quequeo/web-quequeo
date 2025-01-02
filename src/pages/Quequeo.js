@@ -175,7 +175,7 @@ function Quequeo() {
             <IconButton color="primary">
               <GitHub />
             </IconButton>
-            <Typography variant="body3">Frontend (ReactJS)</Typography>
+            <Typography variant="body3">Frontend (React)</Typography>
           </Link>
         </Box>
       </motion.div>
