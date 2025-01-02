@@ -84,7 +84,7 @@ function WorkExperience() {
             transform: 'translateX(-50%)',
             color: greenColor,
             fontWeight: 550,
-            fontSize: { xs: '1.25rem', md: '1.75rem', lg: '2rem' },
+            fontSize: { xs: '1.40rem', md: '1.75rem', lg: '2rem' },
           }}
         >
           {language === 'en' ? 'Work Experience' : 'Experiencia Laboral'}

@@ -18,10 +18,11 @@ function WorkExperienceDetails({ content }) {
         flexDirection: { xs: 'column', md: 'row' },
         alignItems: 'center',
         justifyContent: 'center',
-        gap: '2rem',
+        gap: '0rem',
         width: '100%',
         maxWidth: '850px',
-        marginTop: '1rem',
+        marginTop: { xs: '2rem', md: '1rem' },
+        marginBottom: { xs: '1rem', md: '0' },
       }}
     >
       <Box
@@ -55,9 +56,10 @@ function WorkExperienceDetails({ content }) {
       <Box
         sx={{
           flex: '1',
-          textAlign: 'justify',
+          textAlign: { xs: 'center', md: 'justify' },
           lineHeight: '1',
-          fontSize: { xs: '0.7rem', md: '0.9rem' }
+          fontSize: { xs: '0.7rem', md: '0.9rem' },
+          marginTop: { xs: '-1rem', md: '0' }
         }}
       >
         <AnimatedText variant="body1" component="p" delay={0.2} sx={{ fontSize: 'inherit', lineHeight: 'inherit'  }}>

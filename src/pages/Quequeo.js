@@ -81,6 +81,7 @@ function Quequeo() {
             transform: 'translateX(-50%)',
             color: '#48BB78',
             fontWeight: 550,
+            fontSize: { xs: '1.40rem', md: '1.75rem', lg: '2rem' },
           }}
         >
           {content.page_title}
@@ -120,7 +121,7 @@ function Quequeo() {
           <Box
             sx={{
               maxWidth: '580px',
-              textAlign: 'justify',
+              textAlign: { xs: 'center', md: 'justify' },
               lineHeight: '1.4',
             }}
           >
@@ -151,6 +152,7 @@ function Quequeo() {
             justifyContent: 'center',
             gap: '4.5rem',
             marginTop: '-0.5rem',
+            fontSize: { xs: '0.90rem', md: '1rem', lg: '1.25rem' },
           }}
         >
           <Link
@@ -162,7 +164,7 @@ function Quequeo() {
             <IconButton color="primary">
               <GitHub />
             </IconButton>
-            <Typography variant="body3">API (Rails 8)</Typography>
+            <Typography variant="body3">Backend (Rails)</Typography>
           </Link>
           <Link
             href="https://github.com/quequeo/web-quequeo/"

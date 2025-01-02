@@ -82,6 +82,7 @@ function AboutMe() {
             transform: 'translateX(-50%)',
             color: greenColor,
             fontWeight: 550,
+            fontSize: { xs: '1.40rem', md: '1.75rem', lg: '2rem' }
           }}
         >
           {content.page_title}
@@ -122,8 +123,8 @@ function AboutMe() {
           <Box
             sx={{
               maxWidth: '580px',
-              textAlign: 'justify',
               lineHeight: '1.4',
+              textAlign: { xs: 'center', md: 'justify' },
             }}
           >
             <AnimatedText variant="h5" gutterBottom delay={0.2}>
