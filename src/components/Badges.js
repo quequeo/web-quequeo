@@ -21,6 +21,7 @@ function Badges() {
     'Stripe',
     'Cache',
     'React Native',
+    'Typescript'
   ];
 
   const greenColor = '#48BB78';
@@ -30,7 +31,7 @@ function Badges() {
       sx={{
         display: 'grid',
         gridTemplateColumns: { xs: 'repeat(2, 1fr)', md: 'repeat(auto-fit, minmax(150px, 1fr))' },
-        gap: '1rem', // Espaciado entre badges
+        gap: '0.8rem', // Espaciado entre badges
         marginTop: '1rem',
         justifyContent: 'center',
         width: '100%', // Asegura que ocupe todo el ancho disponible
@@ -43,7 +44,7 @@ function Badges() {
           label={badge}
           variant="outlined"
           sx={{
-            fontSize: '0.875rem',
+            fontSize: '0.85rem',
             padding: '0.25rem 0.5rem',
             transition: 'color 0.3s, border-color 0.3s',
             color: '#3182CE',
