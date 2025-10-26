@@ -58,7 +58,70 @@ The application will be available at http://localhost:3001
 - Axios: Handles API requests efficiently.
 ***
 **Deployment** 🚢
-The application is deployed using __AWS Amplify__. The deployment process is automated through a __Git push__ workflow, where the main branch triggers a build and deployment in Amplify.
+
+### Deploying to Vercel
+
+This application is configured to deploy easily on Vercel. Follow these steps:
+
+#### Option 1: Deploy via Vercel Dashboard (Recommended)
+
+1. **Create a Vercel Account**
+   - Go to [vercel.com](https://vercel.com)
+   - Sign up with your GitHub account
+
+2. **Import Your Repository**
+   - Click "Add New Project"
+   - Import your `web-quequeo` repository from GitHub
+   - Vercel will automatically detect it's a React app
+
+3. **Configure Environment Variables**
+   - In the project settings, add these environment variables:
+     - `REACT_APP_API_BASE_URL`: Your backend API URL
+     - `REACT_APP_WEB_QUEQUEO_SECRET_KEY`: Your secret key
+   - You can find these in your current `.env` file
+
+4. **Deploy**
+   - Click "Deploy"
+   - Vercel will build and deploy your app automatically
+   - You'll get a URL like `https://web-quequeo.vercel.app`
+
+#### Option 2: Deploy via Vercel CLI
+
+1. **Install Vercel CLI**
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Login to Vercel**
+   ```bash
+   vercel login
+   ```
+
+3. **Deploy**
+   ```bash
+   vercel
+   ```
+   - Follow the prompts
+   - Add environment variables when asked
+
+4. **Deploy to Production**
+   ```bash
+   vercel --prod
+   ```
+
+#### Automatic Deployments
+
+Once connected to Vercel:
+- Every push to `main` branch automatically deploys to production
+- Pull requests create preview deployments
+- No manual intervention needed!
+
+#### Custom Domain (Optional)
+
+1. Go to your project settings in Vercel
+2. Navigate to "Domains"
+3. Add your custom domain
+4. Follow DNS configuration instructions
 ****
 **Limitations and Future Plans** 🚧
 1. No Testing Framework:
